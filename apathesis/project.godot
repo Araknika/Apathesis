@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Apathesis"
-run/main_scene="uid://d03u28ux6quex"
+run/main_scene="uid://dx0wocokytsqv"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

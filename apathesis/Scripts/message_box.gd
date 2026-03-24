@@ -1,6 +1,7 @@
 extends MarginContainer
 
 @onready var message_log: RichTextLabel = $VBoxContainer/MessageLog
+@onready var message_noise: AudioStreamPlayer2D = $VBoxContainer/MessageLog/AudioStreamPlayer2D
 
 func _ready() -> void:
 	SignalHandler.message_send.connect(add_message)
@@ -8,6 +9,7 @@ func _ready() -> void:
 #Adds new messages to the log
 func add_message(text: String):
 	message_log.append_text("\n-" + text)
+	message_noise.play()
 	
 	#Scrolls to bottom
 	await get_tree().process_frame

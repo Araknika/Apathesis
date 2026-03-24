@@ -12,7 +12,7 @@
 size = Vector2(24, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chwpn"]
-size = Vector2(24, 36)
+size = Vector2(24, 48)
 
 [node name="Level1" type="Node2D" unique_id=1043882513]
 script = ExtResource("1_6444e")
@@ -48,14 +48,14 @@ tile_set = ExtResource("4_7p6j4")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="LevelSet/Room1" unique_id=1066479176]
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAABAAwAAAAXAAIAAAABABAAAAAXAAQAAAACABAAAAAXAAQAAAADAAwAAAAXAAIAAAADABAAAAAXAAQAAAAEAAwAAAAYAAIAAAAEABAAAAAYAAQAAAAAAAwAAAAWAAIAAAAAAA0AAAAWAAMAAAAAAA4AAAAWAAMAAAAAAA8AAAAWAAMAAAAAABAAAAAWAAQAAAAEAA0AAAAYAAMAAAAEAA4AAAAYAAMAAAAEAA8AAAAYAAMAAAA=")
+tile_map_data = PackedByteArray("AAABAAwAAAAXAAIAAAABABAAAAAXAAQAAAACABAAAAAXAAQAAAADAAwAAAAXAAIAAAADABAAAAAXAAQAAAAEAAwAAAAYAAIAAAAEABAAAAAYAAQAAAAAAAwAAAAWAAIAAAAAAA0AAAAWAAMAAAAAAA4AAAAWAAMAAAAAAA8AAAAWAAMAAAAAABAAAAAWAAQAAAAEAA0AAAAYAAMAAAAEAA4AAAAYAAMAAAAEAA8AAAAYAAMAAAABAA0AAAAKAAUAAAACAA0AAAALAAUAAAADAA0AAAALAAUAAAADAA4AAAAMAAUAAAACAA4AAAALAAUAAAABAA4AAAAMAAUAAAABAA8AAAALAAUAAAADAA8AAAAMAAUAAAACAA8AAAAKAAUAAAACAAwAAAAUAAIAAAA=")
 tile_set = ExtResource("4_7p6j4")
 
 [node name="Door1" type="Node2D" parent="LevelSet/Room1" unique_id=1110878384]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="LevelSet/Room1/Door1" unique_id=25069730]
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAACAAwAAAAUAAIAAAA=")
+tile_map_data = PackedByteArray("AAACAAwAAAATAAIAAAA=")
 tile_set = ExtResource("4_7p6j4")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="LevelSet/Room1/Door1" unique_id=183122862]
@@ -72,8 +72,14 @@ shape = SubResource("RectangleShape2D_wrinw")
 script = ExtResource("7_lsmp6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelSet/Room1/Door1/Area2D" unique_id=2004990338]
-position = Vector2(60, 306)
+position = Vector2(60, 300)
 shape = SubResource("RectangleShape2D_chwpn")
+
+[node name="Room2" type="Node2D" parent="LevelSet" unique_id=1367696839]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="LevelSet/Room2" unique_id=1997392019]
+scale = Vector2(2, 2)
+tile_set = ExtResource("4_7p6j4")
 
 [connection signal="area_entered" from="LevelSet/Room1/Door1/Area2D" to="LevelSet/Room1/Door1/Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="LevelSet/Room1/Door1/Area2D" to="LevelSet/Room1/Door1/Area2D" method="_on_area_exited"]

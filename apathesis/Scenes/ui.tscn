@@ -5,7 +5,9 @@
 [ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="2_nf4gj"]
 [ext_resource type="Texture2D" uid="uid://dby2n52g0b4oa" path="res://Assets/UI/Panels/simple.png" id="3_2246s"]
 [ext_resource type="Script" uid="uid://3wefwtw2b2jd" path="res://Scripts/label.gd" id="4_q7pk6"]
+[ext_resource type="AudioStream" uid="uid://d04jsswk4bo2y" path="res://Assets/Sounds/Effects/UI/message.wav" id="4_ryf15"]
 [ext_resource type="Script" uid="uid://d1w2o7xobuq1t" path="res://Scripts/InteractButton.gd" id="6_m78vo"]
+[ext_resource type="Script" uid="uid://b670fjxapv4qa" path="res://Scripts/OpenButton.gd" id="6_smcll"]
 
 [node name="UI" type="Control" unique_id=420621962]
 layout_mode = 3
@@ -65,6 +67,10 @@ theme_override_font_sizes/normal_font_size = 10
 scroll_active = false
 scroll_following = true
 vertical_alignment = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HUD/Textbox/MessageBoxOutline/MessageBox/VBoxContainer/MessageLog" unique_id=1311970694]
+stream = ExtResource("4_ryf15")
+bus = &"UI"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="HUD/Textbox/MessageBoxOutline" unique_id=1550026793]
 layout_mode = 2
@@ -138,10 +144,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/RightHUD/WorldActions/HBoxContainer" unique_id=665957471]
-custom_minimum_size = Vector2(10, 30)
+custom_minimum_size = Vector2(60, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="OpenButton" type="Button" parent="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer" unique_id=16490783]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nf4gj")
+theme_override_font_sizes/font_size = 10
+text = "OPEN"
+script = ExtResource("6_smcll")
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/RightHUD/WorldActions/HBoxContainer" unique_id=938017692]
 custom_minimum_size = Vector2(60, 30)
@@ -149,11 +162,12 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Button" type="Button" parent="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2" unique_id=458210223]
+[node name="InteractButton" type="Button" parent="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2" unique_id=458210223]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_nf4gj")
 theme_override_font_sizes/font_size = 10
 text = "INTR."
 script = ExtResource("6_m78vo")
 
-[connection signal="pressed" from="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2/Button" to="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2/Button" method="_on_pressed"]
+[connection signal="pressed" from="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer/OpenButton" to="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer/OpenButton" method="_on_pressed"]
+[connection signal="pressed" from="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2/InteractButton" to="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2/InteractButton" method="_on_pressed"]
