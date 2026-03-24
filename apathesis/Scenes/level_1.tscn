@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://banybhswx4s6s" path="res://Scripts/level_1.gd" id="1_6444e"]
 [ext_resource type="AudioStream" uid="uid://pew7wuouvr17" path="res://Assets/Sounds/Music/The Traitor King's Court.wav" id="2_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://2krlu0j26j3p" path="res://Scenes/player.tscn" id="2_8ffim"]
-[ext_resource type="TileSet" uid="uid://ok47i8yiblsi" path="res://Resources/tilesets/new_tile_set.tres" id="4_7p6j4"]
+[ext_resource type="TileSet" uid="uid://ok47i8yiblsi" path="res://Assets/tilesets/new_tile_set.tres" id="4_7p6j4"]
 [ext_resource type="Script" uid="uid://cm6l03v3fgjg" path="res://Scripts/room1.gd" id="6_xrdnt"]
 [ext_resource type="Script" uid="uid://cg34o64qlt1ps" path="res://Scripts/Door1.gd" id="7_lsmp6"]
 [ext_resource type="AudioStream" uid="uid://doek6cnjsqrdy" path="res://Assets/Sounds/Effects/stonedoor.wav" id="7_xrdnt"]

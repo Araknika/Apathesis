@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bfko85772l0y8"]
+
+[ext_resource type="Script" uid="uid://cc2o7kvhop6d8" path="res://Scripts/UI/InventoryHandler.gd" id="1_k1nkb"]
+[ext_resource type="Script" uid="uid://c11r7qcue6k5n" path="res://Resources/Items/ItemData.gd" id="2_c7bwa"]
+[ext_resource type="Resource" uid="uid://dtsipdm1vtqoy" path="res://Resources/Items/RuinedKnife.tres" id="3_r53cr"]
+
+[node name="InventoryHandler" type="Node" unique_id=1637197928]
+script = ExtResource("1_k1nkb")
+PlayerInventory = Array[ExtResource("2_c7bwa")]([null, null, ExtResource("3_r53cr"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])

@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d03u28ux6quex" path="res://Scenes/level_1.tscn" id="1_pu3va"]
 [ext_resource type="PackedScene" uid="uid://b5bgecr64xkns" path="res://Scenes/ui.tscn" id="2_0e3vx"]
+[ext_resource type="Script" uid="uid://2gb7bd2fctdh" path="res://Scripts/UI/custom_cursor.gd" id="2_6j5ir"]
+[ext_resource type="PackedScene" uid="uid://jb6rikt2gdu5" path="res://Resources/Items/item.tscn" id="8_6y7pd"]
 
 [node name="MainGame" type="Node" unique_id=1601059325]
 
@@ -11,6 +13,14 @@
 
 [node name="Systems" type="Node" parent="." unique_id=1554826416]
 
-[node name="HudLayerCanvas" type="CanvasLayer" parent="." unique_id=273854861]
+[node name="Custom Cursor" type="Node" parent="Systems" unique_id=3799081]
+script = ExtResource("2_6j5ir")
 
-[node name="UI" parent="HudLayerCanvas" unique_id=420621962 instance=ExtResource("2_0e3vx")]
+[node name="InventoryHandler" type="Node" parent="Systems" unique_id=1794850782]
+
+[node name="GUI" type="CanvasLayer" parent="." unique_id=273854861]
+
+[node name="UI" parent="GUI" unique_id=420621962 instance=ExtResource("2_0e3vx")]
+
+[node name="Item" parent="." unique_id=1306840746 instance=ExtResource("8_6y7pd")]
+position = Vector2(256, 252)
