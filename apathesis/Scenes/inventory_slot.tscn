@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dekym472luwr0"]
+
+[ext_resource type="Script" uid="uid://bfjymtffaib4o" path="res://Scripts/UI/InventorySlot.gd" id="1_0cu6i"]
+[ext_resource type="Texture2D" uid="uid://bst8g5jh6xh8m" path="res://Assets/UI/Panels/Transparent/simple.png" id="2_pnayc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6h8ck"]
+texture = ExtResource("2_pnayc")
+
+[node name="Inventory Slot" type="Control" unique_id=1939884893]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 42.0
+offset_bottom = 42.0
+script = ExtResource("1_0cu6i")
+
+[node name="ItemSlot" type="Panel" parent="." unique_id=193971720]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 1
+offset_right = 42.0
+offset_bottom = 42.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6h8ck")
+
+[node name="Icon" type="TextureRect" parent="ItemSlot" unique_id=1607864462]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -18.0
+offset_right = 18.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
