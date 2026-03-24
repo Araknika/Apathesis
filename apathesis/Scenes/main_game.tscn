@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://dx0wocokytsqv"]
 
+[ext_resource type="PackedScene" uid="uid://d03u28ux6quex" path="res://Scenes/level_1.tscn" id="1_pu3va"]
+[ext_resource type="PackedScene" uid="uid://b5bgecr64xkns" path="res://Scenes/ui.tscn" id="2_0e3vx"]
+
 [node name="MainGame" type="Node" unique_id=1601059325]
 
 [node name="World" type="Node2D" parent="." unique_id=1017723456]
 
+[node name="Level1" parent="World" unique_id=1043882513 instance=ExtResource("1_pu3va")]
+
 [node name="Systems" type="Node" parent="." unique_id=1554826416]
 
 [node name="HudLayerCanvas" type="CanvasLayer" parent="." unique_id=273854861]
+
+[node name="UI" parent="HudLayerCanvas" unique_id=420621962 instance=ExtResource("2_0e3vx")]

@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://d04jsswk4bo2y" path="res://Assets/Sounds/Effects/UI/message.wav" id="4_ryf15"]
 [ext_resource type="Script" uid="uid://d1w2o7xobuq1t" path="res://Scripts/InteractButton.gd" id="6_m78vo"]
 [ext_resource type="Script" uid="uid://b670fjxapv4qa" path="res://Scripts/OpenButton.gd" id="6_smcll"]
+[ext_resource type="Script" uid="uid://bls54lpfp4bbh" path="res://Scripts/Lookbutton.gd" id="9_mmixe"]
 
 [node name="UI" type="Control" unique_id=420621962]
 layout_mode = 3
@@ -63,7 +64,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/line_separation = 6
 theme_override_fonts/normal_font = ExtResource("2_nf4gj")
-theme_override_font_sizes/normal_font_size = 10
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
 scroll_active = false
 scroll_following = true
 vertical_alignment = 2
@@ -137,37 +139,53 @@ patch_margin_top = 28
 patch_margin_right = 28
 patch_margin_bottom = 28
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/RightHUD/WorldActions" unique_id=2015273058]
-custom_minimum_size = Vector2(200, 150)
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/RightHUD/WorldActions" unique_id=836535382]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/RightHUD/WorldActions/HBoxContainer" unique_id=665957471]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/RightHUD/WorldActions/VBoxContainer" unique_id=2015273058]
+layout_mode = 2
+
+[node name="Open" type="MarginContainer" parent="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer" unique_id=665957471]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="OpenButton" type="Button" parent="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer" unique_id=16490783]
+[node name="OpenButton" type="Button" parent="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Open" unique_id=16490783]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_nf4gj")
 theme_override_font_sizes/font_size = 10
 text = "OPEN"
 script = ExtResource("6_smcll")
 
-[node name="MarginContainer2" type="MarginContainer" parent="HUD/RightHUD/WorldActions/HBoxContainer" unique_id=938017692]
+[node name="Look" type="MarginContainer" parent="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer" unique_id=1846291573]
 custom_minimum_size = Vector2(60, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="InteractButton" type="Button" parent="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2" unique_id=458210223]
+[node name="LookButton" type="Button" parent="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Look" unique_id=247544953]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nf4gj")
+theme_override_font_sizes/font_size = 10
+text = "LOOK"
+script = ExtResource("9_mmixe")
+
+[node name="Interact" type="MarginContainer" parent="HUD/RightHUD/WorldActions/VBoxContainer" unique_id=938017692]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="InteractButton" type="Button" parent="HUD/RightHUD/WorldActions/VBoxContainer/Interact" unique_id=458210223]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_nf4gj")
 theme_override_font_sizes/font_size = 10
 text = "INTR."
 script = ExtResource("6_m78vo")
 
-[connection signal="pressed" from="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer/OpenButton" to="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer/OpenButton" method="_on_pressed"]
-[connection signal="pressed" from="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2/InteractButton" to="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2/InteractButton" method="_on_pressed"]
+[connection signal="pressed" from="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Open/OpenButton" to="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Open/OpenButton" method="_on_pressed"]
+[connection signal="pressed" from="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Look/LookButton" to="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Look/LookButton" method="_on_pressed"]
+[connection signal="pressed" from="HUD/RightHUD/WorldActions/VBoxContainer/Interact/InteractButton" to="HUD/RightHUD/WorldActions/VBoxContainer/Interact/InteractButton" method="_on_pressed"]
