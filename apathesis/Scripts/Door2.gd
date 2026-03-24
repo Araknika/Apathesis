@@ -3,7 +3,6 @@ extends Area2D
 @onready var tile: TileMapLayer = $"../TileMapLayer"
 @onready var collision_shape: CollisionShape2D = $"../StaticBody2D/CollisionShape2D"
 @onready var audio_stream: AudioStreamPlayer2D = $"../AudioStreamPlayer2D"
-@onready var room_2: Node2D = $"../../../../Room2"
 
 var opened = false
 
@@ -29,5 +28,4 @@ func open_door():
 		tile.visible = false
 		collision_shape.disabled = true
 		audio_stream.play()
-		room_2.visible = true
 	elif player_inside: SignalHandler.message_send.emit("THE DOOR SEEMS STUCK...")
