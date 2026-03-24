@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://b5bgecr64xkns"]
+
+[ext_resource type="Texture2D" uid="uid://ese86a3hvk0a" path="res://Assets/UI/Panels/bone_breakers.png" id="1_jxero"]
+[ext_resource type="Script" uid="uid://dghufwu41ntg7" path="res://Scripts/message_box.gd" id="2_2246s"]
+[ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="2_nf4gj"]
+[ext_resource type="Texture2D" uid="uid://dby2n52g0b4oa" path="res://Assets/UI/Panels/simple.png" id="3_2246s"]
+[ext_resource type="Script" uid="uid://3wefwtw2b2jd" path="res://Scripts/label.gd" id="4_q7pk6"]
+[ext_resource type="Script" uid="uid://d1w2o7xobuq1t" path="res://Scripts/InteractButton.gd" id="6_m78vo"]
+
+[node name="UI" type="Control" unique_id=420621962]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HUD" type="MarginContainer" parent="." unique_id=1630716906]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Textbox" type="MarginContainer" parent="HUD" unique_id=79488738]
+custom_minimum_size = Vector2(360, 192)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/Textbox" unique_id=2109779947]
+layout_mode = 2
+texture = ExtResource("1_jxero")
+patch_margin_left = 28
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 28
+
+[node name="MessageBoxOutline" type="MarginContainer" parent="HUD/Textbox" unique_id=1346209952]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 19
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="MessageBox" type="MarginContainer" parent="HUD/Textbox/MessageBoxOutline" unique_id=949763725]
+z_index = 1
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("2_2246s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Textbox/MessageBoxOutline/MessageBox" unique_id=1671050617]
+layout_mode = 2
+
+[node name="MessageLog" type="RichTextLabel" parent="HUD/Textbox/MessageBoxOutline/MessageBox/VBoxContainer" unique_id=71737694]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/line_separation = 6
+theme_override_fonts/normal_font = ExtResource("2_nf4gj")
+theme_override_font_sizes/normal_font_size = 10
+scroll_active = false
+scroll_following = true
+vertical_alignment = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/Textbox/MessageBoxOutline" unique_id=1550026793]
+layout_mode = 2
+texture = ExtResource("3_2246s")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+
+[node name="RightHUD" type="VBoxContainer" parent="HUD" unique_id=1987240362]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 0
+
+[node name="Status" type="MarginContainer" parent="HUD/RightHUD" unique_id=1681443860]
+custom_minimum_size = Vector2(0, 98)
+layout_mode = 2
+script = ExtResource("4_q7pk6")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/RightHUD/Status" unique_id=1853041817]
+layout_mode = 2
+texture = ExtResource("1_jxero")
+patch_margin_left = 28
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 28
+
+[node name="PlayerActions" type="MarginContainer" parent="HUD/RightHUD" unique_id=1483896750]
+custom_minimum_size = Vector2(0, 312)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/RightHUD/PlayerActions" unique_id=768619889]
+layout_mode = 2
+texture = ExtResource("1_jxero")
+patch_margin_left = 28
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 28
+
+[node name="ActionPages" type="MarginContainer" parent="HUD/RightHUD/PlayerActions" unique_id=1382542361]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/RightHUD/PlayerActions/ActionPages" unique_id=1793683123]
+layout_mode = 2
+texture = ExtResource("1_jxero")
+patch_margin_left = 28
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 28
+
+[node name="WorldActions" type="MarginContainer" parent="HUD/RightHUD" unique_id=1915890154]
+custom_minimum_size = Vector2(0, 192)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/RightHUD/WorldActions" unique_id=618401687]
+layout_mode = 2
+texture = ExtResource("1_jxero")
+patch_margin_left = 28
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 28
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/RightHUD/WorldActions" unique_id=2015273058]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/RightHUD/WorldActions/HBoxContainer" unique_id=665957471]
+custom_minimum_size = Vector2(10, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/RightHUD/WorldActions/HBoxContainer" unique_id=938017692]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2" unique_id=458210223]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nf4gj")
+theme_override_font_sizes/font_size = 10
+text = "INTR."
+script = ExtResource("6_m78vo")
+
+[connection signal="pressed" from="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2/Button" to="HUD/RightHUD/WorldActions/HBoxContainer/MarginContainer2/Button" method="_on_pressed"]

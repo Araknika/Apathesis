@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://2krlu0j26j3p"]
+
+[ext_resource type="Script" uid="uid://dp6ya2hdj8jvj" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://dtekl6inebnw3" path="res://Assets/Spritesheets/5.png" id="2_6t5aa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+atlas = ExtResource("2_6t5aa")
+region = Rect2(1, 53, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkybt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgqql")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wgy"]
+size = Vector2(12, 12)
+
+[node name="Player" type="Node2D" unique_id=1617560936]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=123887253]
+script = ExtResource("1_cvnsp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1452356924]
+sprite_frames = SubResource("SpriteFrames_fkybt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=588669003]
+scale = Vector2(0.965, 0.965)
+shape = SubResource("RectangleShape2D_x3wgy")
+
+[node name="RayCast2D" type="RayCast2D" parent="Area2D" unique_id=864508564]
+target_position = Vector2(0, 12)

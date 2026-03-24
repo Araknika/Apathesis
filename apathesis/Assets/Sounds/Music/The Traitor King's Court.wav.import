@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://pew7wuouvr17"
+path="res://.godot/imported/The Traitor King's Court.wav-427a0cd5f7ef019f627efbb21c798e30.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Music/The Traitor King's Court.wav"
+dest_files=["res://.godot/imported/The Traitor King's Court.wav-427a0cd5f7ef019f627efbb21c798e30.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
