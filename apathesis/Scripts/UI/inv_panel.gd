@@ -27,3 +27,13 @@ func update_ui():
 			slot.set_item(inventory.PlayerInventory[i])
 		else:
 			slot.set_item(null)
+
+
+# Inspect logic
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("inspect"):
+		inspect_message()
+
+func inspect_message():
+	pass

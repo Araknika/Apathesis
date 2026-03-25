@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bba3klx7lloep"]
+
+[ext_resource type="Script" uid="uid://b0b6fjwe1rorq" path="res://Scripts/Screens/screen_template.gd" id="1_n2f5b"]
+
+[node name="ScreenTemplate" type="Node2D" unique_id=545118001]
+script = ExtResource("1_n2f5b")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1775251603]
+position = Vector2(150, -150)
+zoom = Vector2(2, 2)
+
+[node name="Background" type="ColorRect" parent="." unique_id=1858866955]
+offset_top = -300.0
+offset_right = 300.0
+color = Color(1, 0, 1, 1)

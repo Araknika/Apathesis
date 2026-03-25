@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_ro6jj")
-item_name = "SCRAP ARMOR"
+item_name = "TATTERED RAGS"
 item_type = 1
 item_description = "BETTER THAN NOTHING..."
 item_texture = ExtResource("1_vkcc2")
