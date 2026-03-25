@@ -32,8 +32,8 @@ func update_ui():
 # Inspect logic
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("inspect"):
+	if Input.is_action_just_pressed("m2"):
 		inspect_message()
 
 func inspect_message():
-	pass
+	SignalHandler.description_pull.emit()
