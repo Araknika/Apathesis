@@ -9,6 +9,11 @@
 
 [node name="PlayerActions" type="MarginContainer" unique_id=835199416]
 custom_minimum_size = Vector2(0, 312)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=94110331]
 layout_mode = 2

@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://chkxnvswdpdad" path="res://Scenes/UI Elements/textbox.tscn" id="1_nt8jn"]
 [ext_resource type="PackedScene" uid="uid://dbgxcf5uepu3u" path="res://Scenes/UI Elements/status.tscn" id="2_2246s"]
+[ext_resource type="PackedScene" uid="uid://d4lqxp0ic42md" path="res://Scenes/UI Elements/game_view.tscn" id="2_m78vo"]
+[ext_resource type="Texture2D" uid="uid://dby2n52g0b4oa" path="res://Assets/UI/Panels/simple.png" id="3_2246s"]
 [ext_resource type="PackedScene" uid="uid://bftk0qp44uc1q" path="res://Scenes/UI Elements/player_actions.tscn" id="3_q7pk6"]
 [ext_resource type="PackedScene" uid="uid://dub8oiega2nob" path="res://Scenes/UI Elements/world_actions.tscn" id="4_m78vo"]
 
@@ -18,23 +20,69 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Textbox" parent="HUD" unique_id=2078363890 instance=ExtResource("1_nt8jn")]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD" unique_id=768319194]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="LeftHud" type="VBoxContainer" parent="HUD/HBoxContainer" unique_id=171425469]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TopHud" type="MarginContainer" parent="HUD/HBoxContainer/LeftHud" unique_id=2118176040]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="RightHUD" type="VBoxContainer" parent="HUD" unique_id=1987240362]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HBoxContainer/LeftHud/TopHud" unique_id=623756665]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer" unique_id=1643641188]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer/MarginContainer" unique_id=270122461]
+layout_mode = 2
+texture = ExtResource("3_2246s")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer" unique_id=620006454]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer/MarginContainer2" unique_id=1148003125]
+layout_mode = 2
+texture = ExtResource("3_2246s")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="GameView" parent="HUD/HBoxContainer/LeftHud" unique_id=1554540969 instance=ExtResource("2_m78vo")]
+layout_mode = 2
+
+[node name="Textbox" parent="HUD/HBoxContainer/LeftHud" unique_id=2078363890 instance=ExtResource("1_nt8jn")]
+layout_mode = 2
+
+[node name="RightHUD" type="VBoxContainer" parent="HUD/HBoxContainer" unique_id=1987240362]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 0
 
-[node name="Status" parent="HUD/RightHUD" unique_id=752275066 instance=ExtResource("2_2246s")]
+[node name="Status" parent="HUD/HBoxContainer/RightHUD" unique_id=752275066 instance=ExtResource("2_2246s")]
 layout_mode = 2
 
-[node name="PlayerActions" parent="HUD/RightHUD" unique_id=835199416 instance=ExtResource("3_q7pk6")]
+[node name="PlayerActions" parent="HUD/HBoxContainer/RightHUD" unique_id=835199416 instance=ExtResource("3_q7pk6")]
 layout_mode = 2
 
-[node name="WorldActions" parent="HUD/RightHUD" unique_id=125634570 instance=ExtResource("4_m78vo")]
+[node name="WorldActions" parent="HUD/HBoxContainer/RightHUD" unique_id=125634570 instance=ExtResource("4_m78vo")]
 layout_mode = 2
