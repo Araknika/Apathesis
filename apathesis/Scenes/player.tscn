@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2krlu0j26j3p"]
 
-[ext_resource type="Script" uid="uid://dp6ya2hdj8jvj" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://dp6ya2hdj8jvj" path="res://Scripts/Player/playermovement.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dtekl6inebnw3" path="res://Assets/Spritesheets/5.png" id="2_6t5aa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
@@ -35,3 +35,8 @@ shape = SubResource("RectangleShape2D_x3wgy")
 
 [node name="RayCast2D" type="RayCast2D" parent="Area2D" unique_id=864508564]
 target_position = Vector2(0, 12)
+
+[node name="Camera2D" type="Camera2D" parent="Area2D" unique_id=1349930178]
+zoom = Vector2(2.085, 2.085)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0

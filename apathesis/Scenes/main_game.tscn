@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b5bgecr64xkns" path="res://Scenes/ui.tscn" id="2_0e3vx"]
 [ext_resource type="Script" uid="uid://2gb7bd2fctdh" path="res://Scripts/UI/custom_cursor.gd" id="2_6j5ir"]
+[ext_resource type="Script" uid="uid://b6w5gvkqqyufb" path="res://Scripts/music_player.gd" id="3_0e3vx"]
 
 [node name="MainGame" type="Node" unique_id=1601059325]
 
@@ -15,3 +16,11 @@ script = ExtResource("2_6j5ir")
 [node name="GUI" type="CanvasLayer" parent="." unique_id=273854861]
 
 [node name="UI" parent="GUI" unique_id=420621962 instance=ExtResource("2_0e3vx")]
+
+[node name="Sound" type="Node2D" parent="." unique_id=742287110]
+
+[node name="MusicPlayer" type="Node2D" parent="Sound" unique_id=1141174896]
+script = ExtResource("3_0e3vx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Sound/MusicPlayer" unique_id=367644508]
+bus = &"Music"

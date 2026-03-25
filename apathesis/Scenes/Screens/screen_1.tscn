@@ -1,0 +1,59 @@
+[gd_scene format=4 uid="uid://uxemkllljr7d"]
+
+[ext_resource type="TileSet" uid="uid://ok47i8yiblsi" path="res://Assets/tilesets/new_tile_set.tres" id="1_xlom1"]
+[ext_resource type="Script" uid="uid://bbpuwpq38cf0" path="res://Scripts/Screens/screen1/door_1.gd" id="2_22lo2"]
+[ext_resource type="PackedScene" uid="uid://2krlu0j26j3p" path="res://Scenes/player.tscn" id="2_hrnfc"]
+[ext_resource type="Script" uid="uid://01yhsnb5yvl5" path="res://Scenes/Screens/roomcheck1.gd" id="2_yspfn"]
+[ext_resource type="AudioStream" uid="uid://doek6cnjsqrdy" path="res://Assets/Sounds/Effects/stonedoor.wav" id="3_noji0"]
+
+[node name="Screen1" type="Node2D" unique_id=2141356641]
+
+[node name="BG" type="ColorRect" parent="." unique_id=538396177]
+z_index = -1
+offset_left = -216.0
+offset_top = -324.0
+offset_right = 528.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 1)
+
+[node name="Rooms" type="Node2D" parent="." unique_id=1868594537]
+position = Vector2(0, -300)
+
+[node name="Room1" type="Node2D" parent="Rooms" unique_id=1552440746]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Rooms/Room1" unique_id=856223675]
+tile_map_data = PackedByteArray("AAADABcAAAAXAAQAAAACABcAAAAXAAQAAAABABcAAAAWAAQAAAABABYAAAAWAAMAAAABABUAAAAWAAMAAAABABQAAAAWAAMAAAAFABQAAAAYAAMAAAAFABUAAAAYAAMAAAAFABYAAAAYAAMAAAAFABcAAAAYAAQAAAAEABcAAAAXAAQAAAAFABMAAAAYAAIAAAABABMAAAAWAAIAAAACABMAAAAXAAIAAAAEABMAAAAXAAIAAAADABMAAAAUAAIAAAA=")
+tile_set = ExtResource("1_xlom1")
+
+[node name="roomcheck" type="Area2D" parent="Rooms/Room1" unique_id=2036090546]
+script = ExtResource("2_yspfn")
+
+[node name="roomcheckbox" type="CollisionPolygon2D" parent="Rooms/Room1/roomcheck" unique_id=1763983441]
+polygon = PackedVector2Array(24, 240, 24, 276, 60, 276, 60, 240)
+
+[node name="door1" type="Area2D" parent="Rooms/Room1" unique_id=392115885]
+script = ExtResource("2_22lo2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Rooms/Room1/door1" unique_id=1014809575]
+stream = ExtResource("3_noji0")
+bus = &"Effects"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Rooms/Room1/door1" unique_id=150147609]
+tile_map_data = PackedByteArray("AAADABMAAAATAAIAAAA=")
+tile_set = ExtResource("1_xlom1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Room1/door1" unique_id=1124788356]
+polygon = PackedVector2Array(36, 240, 36, 222, 48, 222, 48, 246, 36, 246)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rooms/Room1/door1" unique_id=29970262]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Rooms/Room1/door1/StaticBody2D" unique_id=1273739048]
+polygon = PackedVector2Array(36, 228, 36, 240, 48, 240, 48, 228)
+
+[node name="Player" parent="." unique_id=1617560936 instance=ExtResource("2_hrnfc")]
+position = Vector2(36, -48)
+
+[connection signal="area_entered" from="Rooms/Room1/roomcheck" to="Rooms/Room1/roomcheck" method="_on_area_entered"]
+[connection signal="area_exited" from="Rooms/Room1/roomcheck" to="Rooms/Room1/roomcheck" method="_on_area_exited"]
+[connection signal="area_entered" from="Rooms/Room1/door1" to="Rooms/Room1/door1" method="_on_area_entered"]
+[connection signal="area_exited" from="Rooms/Room1/door1" to="Rooms/Room1/door1" method="_on_area_exited"]
