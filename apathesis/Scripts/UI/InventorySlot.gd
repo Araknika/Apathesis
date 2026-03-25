@@ -2,6 +2,12 @@ extends Control
 
 @onready var icon: TextureRect = $ItemSlot/Icon
 
+func _ready() -> void:
+	item_signals()
+
+func _process(delta: float) -> void:
+	pass
+
 func set_item(new_item: ItemData):
 	item = new_item
 	
@@ -49,3 +55,29 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	InventoryHandler.PlayerInventory[from_index] = temp
 	
 	SignalHandler.inventory_update.emit()
+	
+	
+# HOVER LOGIC
+var hovered := false
+
+func _on_icon_mouse_entered() -> void:
+	hovered = true	
+
+func _on_icon_mouse_exited() -> void:
+	hovered = false
+
+# ITEM DATA SIGNAL LOGIC
+func item_signals():
+	#SignalHandler.name_pull.connect(send_name)
+	#SignalHandler.type_pull.connect(send_type)
+	#SignalHandler.description_pull.connect(send_description)
+	pass
+
+func send_name():
+	SignalHandler.name_send.emit(item.item_name)
+
+func send_type():
+	SignalHandler.type_send.emit(item.item_type)
+
+func send_description():
+	SignalHandler.description_send.emit(item.item_description)

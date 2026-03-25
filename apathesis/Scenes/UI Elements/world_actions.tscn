@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dub8oiega2nob"]
+
+[ext_resource type="Texture2D" uid="uid://ese86a3hvk0a" path="res://Assets/UI/Panels/bone_breakers.png" id="1_y5a3c"]
+[ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="2_uhdcp"]
+[ext_resource type="Script" uid="uid://b670fjxapv4qa" path="res://Scripts/UI/OpenButton.gd" id="3_yy6su"]
+[ext_resource type="Script" uid="uid://bls54lpfp4bbh" path="res://Scripts/UI/Lookbutton.gd" id="4_wwmb3"]
+[ext_resource type="Script" uid="uid://d1w2o7xobuq1t" path="res://Scripts/UI/InteractButton.gd" id="5_hcn2j"]
+[ext_resource type="Script" uid="uid://18mb5wxsab1r" path="res://Scripts/UI/inspect_button.gd" id="6_nggnp"]
+
+[node name="WorldActions" type="MarginContainer" unique_id=125634570]
+custom_minimum_size = Vector2(0, 192)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=285612704]
+layout_mode = 2
+texture = ExtResource("1_y5a3c")
+patch_margin_left = 28
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 28
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1831919838]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=938861936]
+layout_mode = 2
+
+[node name="Open" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1196853954]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="OpenButton" type="Button" parent="VBoxContainer/HBoxContainer/Open" unique_id=1588071339]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uhdcp")
+theme_override_font_sizes/font_size = 10
+text = "OPEN"
+script = ExtResource("3_yy6su")
+
+[node name="Look" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1846525044]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="LookButton" type="Button" parent="VBoxContainer/HBoxContainer/Look" unique_id=121529301]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uhdcp")
+theme_override_font_sizes/font_size = 10
+text = "LOOK"
+script = ExtResource("4_wwmb3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=331870331]
+layout_mode = 2
+
+[node name="Interact" type="MarginContainer" parent="VBoxContainer/HBoxContainer2" unique_id=682812566]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="InteractButton" type="Button" parent="VBoxContainer/HBoxContainer2/Interact" unique_id=1205658070]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uhdcp")
+theme_override_font_sizes/font_size = 10
+text = "INTR."
+script = ExtResource("5_hcn2j")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1302596084]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+
+[node name="InspectButton" type="Button" parent="VBoxContainer/HBoxContainer2/MarginContainer" unique_id=1504604175]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uhdcp")
+theme_override_font_sizes/font_size = 10
+text = "INSP."
+script = ExtResource("6_nggnp")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Open/OpenButton" to="VBoxContainer/HBoxContainer/Open/OpenButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Look/LookButton" to="VBoxContainer/HBoxContainer/Look/LookButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Interact/InteractButton" to="VBoxContainer/HBoxContainer2/Interact/InteractButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/MarginContainer/InspectButton" to="VBoxContainer/HBoxContainer2/MarginContainer/InspectButton" method="_on_pressed"]

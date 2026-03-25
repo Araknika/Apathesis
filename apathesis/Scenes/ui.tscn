@@ -1,18 +1,11 @@
 [gd_scene format=3 uid="uid://b5bgecr64xkns"]
 
-[ext_resource type="Texture2D" uid="uid://ese86a3hvk0a" path="res://Assets/UI/Panels/bone_breakers.png" id="1_jxero"]
-[ext_resource type="Script" uid="uid://dghufwu41ntg7" path="res://Scripts/UI/message_box.gd" id="2_2246s"]
-[ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="2_nf4gj"]
+[ext_resource type="PackedScene" uid="uid://chkxnvswdpdad" path="res://Scenes/UI Elements/textbox.tscn" id="1_nt8jn"]
+[ext_resource type="PackedScene" uid="uid://dbgxcf5uepu3u" path="res://Scenes/UI Elements/status.tscn" id="2_2246s"]
+[ext_resource type="PackedScene" uid="uid://d4lqxp0ic42md" path="res://Scenes/UI Elements/game_view.tscn" id="2_m78vo"]
 [ext_resource type="Texture2D" uid="uid://dby2n52g0b4oa" path="res://Assets/UI/Panels/simple.png" id="3_2246s"]
-[ext_resource type="AudioStream" uid="uid://d04jsswk4bo2y" path="res://Assets/Sounds/Effects/UI/message.wav" id="4_ryf15"]
-[ext_resource type="Script" uid="uid://chcle7g4omwgy" path="res://Scripts/UI/inv_panel.gd" id="6_3r70p"]
-[ext_resource type="Script" uid="uid://d1w2o7xobuq1t" path="res://Scripts/UI/InteractButton.gd" id="6_m78vo"]
-[ext_resource type="Script" uid="uid://b670fjxapv4qa" path="res://Scripts/UI/OpenButton.gd" id="6_smcll"]
-[ext_resource type="Script" uid="uid://dw128k4kuoeiy" path="res://Scripts/UI/InvGrid.gd" id="7_8fs27"]
-[ext_resource type="PackedScene" uid="uid://dekym472luwr0" path="res://Scenes/inventory_slot.tscn" id="7_g0wmg"]
-[ext_resource type="Script" uid="uid://bls54lpfp4bbh" path="res://Scripts/UI/Lookbutton.gd" id="9_mmixe"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ryf15"]
+[ext_resource type="PackedScene" uid="uid://bftk0qp44uc1q" path="res://Scenes/UI Elements/player_actions.tscn" id="3_q7pk6"]
+[ext_resource type="PackedScene" uid="uid://dub8oiega2nob" path="res://Scenes/UI Elements/world_actions.tscn" id="4_m78vo"]
 
 [node name="UI" type="Control" unique_id=420621962]
 layout_mode = 3
@@ -27,202 +20,69 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Textbox" type="MarginContainer" parent="HUD" unique_id=79488738]
-custom_minimum_size = Vector2(360, 192)
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD" unique_id=768319194]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
+theme_override_constants/separation = 0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="HUD/Textbox" unique_id=2109779947]
+[node name="LeftHud" type="VBoxContainer" parent="HUD/HBoxContainer" unique_id=171425469]
+custom_minimum_size = Vector2(0, 360)
 layout_mode = 2
-texture = ExtResource("1_jxero")
-patch_margin_left = 28
-patch_margin_top = 28
-patch_margin_right = 28
-patch_margin_bottom = 28
+theme_override_constants/separation = 0
 
-[node name="MessageBoxOutline" type="MarginContainer" parent="HUD/Textbox" unique_id=1346209952]
-layout_mode = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 19
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="MessageBox" type="MarginContainer" parent="HUD/Textbox/MessageBoxOutline" unique_id=949763725]
-z_index = 1
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-script = ExtResource("2_2246s")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Textbox/MessageBoxOutline/MessageBox" unique_id=1671050617]
+[node name="TopHud" type="MarginContainer" parent="HUD/HBoxContainer/LeftHud" unique_id=2118176040]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
-[node name="MessageLog" type="RichTextLabel" parent="HUD/Textbox/MessageBoxOutline/MessageBox/VBoxContainer" unique_id=71737694]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HBoxContainer/LeftHud/TopHud" unique_id=623756665]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/line_separation = 6
-theme_override_fonts/normal_font = ExtResource("2_nf4gj")
-theme_override_font_sizes/normal_font_size = 8
-bbcode_enabled = true
-scroll_active = false
-scroll_following = true
-vertical_alignment = 2
+theme_override_constants/separation = 0
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="HUD/Textbox/MessageBoxOutline/MessageBox/VBoxContainer/MessageLog" unique_id=1311970694]
-stream = ExtResource("4_ryf15")
-bus = &"UI"
+[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer" unique_id=1643641188]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="HUD/Textbox/MessageBoxOutline" unique_id=1550026793]
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer/MarginContainer" unique_id=270122461]
 layout_mode = 2
 texture = ExtResource("3_2246s")
-region_rect = Rect2(0, 0, 96, 96)
-patch_margin_left = 12
-patch_margin_top = 12
-patch_margin_right = 12
-patch_margin_bottom = 12
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
 
-[node name="RightHUD" type="VBoxContainer" parent="HUD" unique_id=1987240362]
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer" unique_id=620006454]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer/MarginContainer2" unique_id=1148003125]
+layout_mode = 2
+texture = ExtResource("3_2246s")
+patch_margin_left = 11
+patch_margin_top = 11
+patch_margin_right = 11
+patch_margin_bottom = 11
+
+[node name="GameView" parent="HUD/HBoxContainer/LeftHud" unique_id=1554540969 instance=ExtResource("2_m78vo")]
+layout_mode = 2
+
+[node name="Textbox" parent="HUD/HBoxContainer/LeftHud" unique_id=2078363890 instance=ExtResource("1_nt8jn")]
+layout_mode = 2
+
+[node name="RightHUD" type="VBoxContainer" parent="HUD/HBoxContainer" unique_id=1987240362]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 0
 
-[node name="Status" type="MarginContainer" parent="HUD/RightHUD" unique_id=1681443860]
-custom_minimum_size = Vector2(0, 98)
+[node name="Status" parent="HUD/HBoxContainer/RightHUD" unique_id=752275066 instance=ExtResource("2_2246s")]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="HUD/RightHUD/Status" unique_id=1853041817]
-layout_mode = 2
-texture = ExtResource("1_jxero")
-patch_margin_left = 28
-patch_margin_top = 28
-patch_margin_right = 28
-patch_margin_bottom = 28
-
-[node name="PlayerActions" type="MarginContainer" parent="HUD/RightHUD" unique_id=1483896750]
-custom_minimum_size = Vector2(0, 312)
+[node name="PlayerActions" parent="HUD/HBoxContainer/RightHUD" unique_id=835199416 instance=ExtResource("3_q7pk6")]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="HUD/RightHUD/PlayerActions" unique_id=768619889]
+[node name="WorldActions" parent="HUD/HBoxContainer/RightHUD" unique_id=125634570 instance=ExtResource("4_m78vo")]
 layout_mode = 2
-texture = ExtResource("1_jxero")
-patch_margin_left = 28
-patch_margin_top = 28
-patch_margin_right = 28
-patch_margin_bottom = 28
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/RightHUD/PlayerActions" unique_id=1414417989]
-layout_mode = 2
-
-[node name="ActionPages" type="MarginContainer" parent="HUD/RightHUD/PlayerActions/VBoxContainer" unique_id=1382542361]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="HUD/RightHUD/PlayerActions/VBoxContainer/ActionPages" unique_id=1793683123]
-layout_mode = 2
-texture = ExtResource("1_jxero")
-patch_margin_left = 28
-patch_margin_top = 28
-patch_margin_right = 28
-patch_margin_bottom = 28
-
-[node name="TabContainer" type="TabContainer" parent="HUD/RightHUD/PlayerActions/VBoxContainer" unique_id=585096076]
-custom_minimum_size = Vector2(204, 240)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_ryf15")
-tab_alignment = 1
-current_tab = 0
-tabs_visible = false
-
-[node name="InvPanel" type="MarginContainer" parent="HUD/RightHUD/PlayerActions/VBoxContainer/TabContainer" unique_id=1225749390]
-layout_mode = 2
-mouse_filter = 2
-script = ExtResource("6_3r70p")
-slot_scene = ExtResource("7_g0wmg")
-metadata/_tab_index = 0
-
-[node name="InvGrid" type="GridContainer" parent="HUD/RightHUD/PlayerActions/VBoxContainer/TabContainer/InvPanel" unique_id=1637407208]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/h_separation = 12
-theme_override_constants/v_separation = 7
-columns = 4
-script = ExtResource("7_8fs27")
-
-[node name="WorldActions" type="MarginContainer" parent="HUD/RightHUD" unique_id=1915890154]
-custom_minimum_size = Vector2(0, 192)
-layout_mode = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="HUD/RightHUD/WorldActions" unique_id=618401687]
-layout_mode = 2
-texture = ExtResource("1_jxero")
-patch_margin_left = 28
-patch_margin_top = 28
-patch_margin_right = 28
-patch_margin_bottom = 28
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/RightHUD/WorldActions" unique_id=836535382]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/RightHUD/WorldActions/VBoxContainer" unique_id=2015273058]
-layout_mode = 2
-
-[node name="Open" type="MarginContainer" parent="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer" unique_id=665957471]
-custom_minimum_size = Vector2(60, 30)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="OpenButton" type="Button" parent="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Open" unique_id=16490783]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_nf4gj")
-theme_override_font_sizes/font_size = 10
-text = "OPEN"
-script = ExtResource("6_smcll")
-
-[node name="Look" type="MarginContainer" parent="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer" unique_id=1846291573]
-custom_minimum_size = Vector2(60, 30)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="LookButton" type="Button" parent="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Look" unique_id=247544953]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_nf4gj")
-theme_override_font_sizes/font_size = 10
-text = "LOOK"
-script = ExtResource("9_mmixe")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/RightHUD/WorldActions/VBoxContainer" unique_id=549783603]
-layout_mode = 2
-
-[node name="Interact" type="MarginContainer" parent="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer2" unique_id=938017692]
-custom_minimum_size = Vector2(60, 30)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="InteractButton" type="Button" parent="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer2/Interact" unique_id=458210223]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_nf4gj")
-theme_override_font_sizes/font_size = 10
-text = "INTR."
-script = ExtResource("6_m78vo")
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer2" unique_id=978239572]
-layout_mode = 2
-
-[connection signal="pressed" from="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Open/OpenButton" to="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Open/OpenButton" method="_on_pressed"]
-[connection signal="pressed" from="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Look/LookButton" to="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer/Look/LookButton" method="_on_pressed"]
-[connection signal="pressed" from="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer2/Interact/InteractButton" to="HUD/RightHUD/WorldActions/VBoxContainer/HBoxContainer2/Interact/InteractButton" method="_on_pressed"]
