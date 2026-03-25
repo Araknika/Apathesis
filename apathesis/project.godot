@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://kpx8y8qxnwgu"
 Dialogic="*uid://ds2q0uclmolvu"
 SignalHandler="*uid://dcf8f057dvp1q"
 InventoryHandler="*uid://bfko85772l0y8"
+ItemHandler="*uid://c0lay13a2d3r3"
 
 [dialogic]
 

@@ -1,28 +1,51 @@
-extends Panel
+extends Control
 
-@onready var icon: TextureRect = $Icon
+@onready var icon: TextureRect = $ItemSlot/Icon
 
+func set_item(new_item: ItemData):
+	item = new_item
+	
+	if item:
+		icon.texture = item.item_texture
+	else:
+		icon.texture = null
 
 # DRAG LOGIC
+var item: ItemData = null
+var index: int = -1
+
 func _get_drag_data(_at_position: Vector2) -> Variant:
-	if icon.texture == null:
+	if item == null:
 		return
 	
-	var preview = duplicate()
-	var c = Control.new()
-	c.add_child(preview)
-	preview.position -= Vector2(23,23)
-	preview.self_modulate = Color.TRANSPARENT
-	c.modulate = Color(c.modulate, 0.5)
+	var preview = TextureRect.new()
+	preview.texture = icon.texture
+	preview.size = Vector2(42,42)
+	preview.self_modulate = Color(1, 1, 1, 0.5)
 	
-	set_drag_preview(c)
-	return icon
+	var container = Control.new()
+	container.custom_minimum_size = preview.size
+	
+	container.add_child(preview)
+	preview.position = -preview.size / 2
+	
+	set_drag_preview(container)
+	return {
+		"item": item,
+		"from_index": index,
+		"from_slot": self
+	}
 
 # DROP LOGIC
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	return true
+	return data is Dictionary and data.has("item")
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	var tmp = icon.texture
-	icon.texture = data.texture
-	data.texture = tmp
+	var from_index =data["from_index"]
+	var from_slot = data["from_slot"]
+	
+	var temp = InventoryHandler.PlayerInventory[index]
+	InventoryHandler.PlayerInventory[index] = InventoryHandler.PlayerInventory[from_index]
+	InventoryHandler.PlayerInventory[from_index] = temp
+	
+	SignalHandler.inventory_update.emit()
