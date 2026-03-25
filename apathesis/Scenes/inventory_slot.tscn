@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfjymtffaib4o" path="res://Scripts/UI/InventorySlot.gd" id="1_0cu6i"]
 [ext_resource type="Texture2D" uid="uid://bst8g5jh6xh8m" path="res://Assets/UI/Panels/Transparent/simple.png" id="2_pnayc"]
+[ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="3_pnayc"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6h8ck"]
 texture = ExtResource("2_pnayc")
@@ -12,7 +13,20 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 42.0
 offset_bottom = 42.0
-script = ExtResource("1_0cu6i")
+mouse_filter = 2
+
+[node name="ContextMenu" type="PopupMenu" parent="." unique_id=39895558]
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+size = Vector2i(165, 100)
+theme_override_fonts/font = ExtResource("3_pnayc")
+theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_separator_size = 2
+item_count = 2
+item_0/text = "USE"
+item_0/id = 1
+item_1/text = "INSPECT"
+item_1/id = 0
 
 [node name="ItemSlot" type="Panel" parent="." unique_id=193971720]
 custom_minimum_size = Vector2(42, 42)
@@ -21,8 +35,8 @@ offset_right = 42.0
 offset_bottom = 42.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6h8ck")
+script = ExtResource("1_0cu6i")
 
 [node name="Icon" type="TextureRect" parent="ItemSlot" unique_id=1607864462]
 layout_mode = 1
@@ -37,9 +51,9 @@ offset_right = 18.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
+mouse_filter = 2
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="ItemSlot/Icon" to="." method="_on_icon_mouse_entered"]
-[connection signal="mouse_exited" from="ItemSlot/Icon" to="." method="_on_icon_mouse_exited"]
+[connection signal="id_pressed" from="ContextMenu" to="." method="_on_context_menu_id_pressed"]
+[connection signal="gui_input" from="ItemSlot" to="ItemSlot" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ItemSlot" to="ItemSlot" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ItemSlot" to="ItemSlot" method="_on_mouse_exited"]

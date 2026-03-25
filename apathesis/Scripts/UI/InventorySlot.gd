@@ -1,6 +1,7 @@
-extends Control
+extends Panel
 
-@onready var icon: TextureRect = $ItemSlot/Icon
+@onready var icon: TextureRect = $Icon
+@onready var root = get_parent()
 
 func _ready() -> void:
 	item_signals()
@@ -24,18 +25,17 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	if item == null:
 		return
 	
-	var preview = TextureRect.new()
-	preview.texture = icon.texture
-	preview.size = Vector2(42,42)
-	preview.self_modulate = Color(1, 1, 1, 0.5)
+	var drag_preview = Control.new()
+	var preview_icon = TextureRect.new()
 	
-	var container = Control.new()
-	container.custom_minimum_size = preview.size
+	preview_icon.texture = icon.texture
+	preview_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	preview_icon.custom_minimum_size = Vector2(40, 40)
+	preview_icon.modulate.a = 0.5
+	preview_icon.position = -0.5 * preview_icon.custom_minimum_size
+	drag_preview.add_child(preview_icon)
+	set_drag_preview(drag_preview)
 	
-	container.add_child(preview)
-	preview.position = -preview.size / 2
-	
-	set_drag_preview(container)
 	return {
 		"item": item,
 		"from_index": index,
@@ -43,12 +43,11 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	}
 
 # DROP LOGIC
-func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
+func _can_drop_data(_pos, data) -> bool:
 	return data is Dictionary and data.has("item")
 
-func _drop_data(at_position: Vector2, data: Variant) -> void:
+func _drop_data(_post, data) -> void:
 	var from_index =data["from_index"]
-	var from_slot = data["from_slot"]
 	
 	var temp = InventoryHandler.PlayerInventory[index]
 	InventoryHandler.PlayerInventory[index] = InventoryHandler.PlayerInventory[from_index]
@@ -60,13 +59,10 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 # HOVER LOGIC
 var hovered := false
 
-func _on_icon_mouse_entered() -> void:
+func _on_mouse_entered() -> void:
 	hovered = true
-
-
-func _on_icon_mouse_exited() -> void:
+func _on_mouse_exited() -> void:
 	hovered = false
-	
 
 
 # ITEM DATA SIGNAL LOGIC
@@ -84,3 +80,17 @@ func send_type():
 func send_description():
 	if item and hovered:
 		SignalHandler.description_send.emit(item.item_description)
+
+
+# CONTEXT MENU LOGIC
+
+@onready var context_menu: PopupMenu = $"../ContextMenu"
+
+var index_number = InventoryHandler.PlayerInventory.find(item)
+
+func _on_gui_input(event: InputEvent) -> void:
+	if item and hovered and event is InputEventMouseButton and event.button_index == (MOUSE_BUTTON_RIGHT) and event.pressed:
+		if index_number != -1:
+			print(index_number)
+		else:
+			print("empty")

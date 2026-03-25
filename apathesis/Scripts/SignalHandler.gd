@@ -16,6 +16,7 @@ signal hp_update
 
 # Inventory Signals
 signal inventory_update
+signal context_start
 
 # Item Signals
 signal name_pull
