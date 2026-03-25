@@ -24,3 +24,7 @@ func remove_item(index: int):
 	if index >= 0 and index < PlayerInventory.size():
 		PlayerInventory.remove_at(index)
 		SignalHandler.inventory_update.emit()
+
+# MESSAGE LOGIC
+func message_description():
+	pass

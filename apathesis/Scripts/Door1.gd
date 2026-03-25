@@ -18,8 +18,8 @@ func _on_area_entered(area: Area2D) -> void:
 		player_inside = true
 
 func _on_area_exited(area: Area2D) -> void:
-		if area.has_method("player"):
-			player_inside = false
+	if area.has_method("player"):
+		player_inside = false
 
 
 func open_door():

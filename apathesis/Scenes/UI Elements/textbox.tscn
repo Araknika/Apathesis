@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://chkxnvswdpdad"]
+
+[ext_resource type="Texture2D" uid="uid://ese86a3hvk0a" path="res://Assets/UI/Panels/bone_breakers.png" id="1_mshf3"]
+[ext_resource type="Script" uid="uid://dghufwu41ntg7" path="res://Scripts/UI/message_box.gd" id="2_8c1qa"]
+[ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="3_5cpld"]
+[ext_resource type="AudioStream" uid="uid://d04jsswk4bo2y" path="res://Assets/Sounds/Effects/UI/message.wav" id="4_slypr"]
+[ext_resource type="Texture2D" uid="uid://dby2n52g0b4oa" path="res://Assets/UI/Panels/simple.png" id="5_h06gs"]
+
+[node name="Textbox" type="MarginContainer" unique_id=2078363890]
+custom_minimum_size = Vector2(360, 192)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=712233792]
+layout_mode = 2
+texture = ExtResource("1_mshf3")
+patch_margin_left = 28
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 28
+
+[node name="MessageBoxOutline" type="MarginContainer" parent="." unique_id=643739270]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 19
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="MessageBox" type="MarginContainer" parent="MessageBoxOutline" unique_id=874648834]
+z_index = 1
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("2_8c1qa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageBoxOutline/MessageBox" unique_id=57805731]
+layout_mode = 2
+
+[node name="MessageLog" type="RichTextLabel" parent="MessageBoxOutline/MessageBox/VBoxContainer" unique_id=501325347]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/line_separation = 6
+theme_override_fonts/normal_font = ExtResource("3_5cpld")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+scroll_active = false
+scroll_following = true
+vertical_alignment = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MessageBoxOutline/MessageBox/VBoxContainer/MessageLog" unique_id=1717694909]
+stream = ExtResource("4_slypr")
+bus = &"UI"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MessageBoxOutline" unique_id=828707396]
+layout_mode = 2
+texture = ExtResource("5_h06gs")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12

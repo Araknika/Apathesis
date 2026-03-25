@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bftk0qp44uc1q"]
+
+[ext_resource type="Texture2D" uid="uid://ese86a3hvk0a" path="res://Assets/UI/Panels/bone_breakers.png" id="1_1tcaa"]
+[ext_resource type="Script" uid="uid://chcle7g4omwgy" path="res://Scripts/UI/inv_panel.gd" id="2_p48ia"]
+[ext_resource type="PackedScene" uid="uid://dekym472luwr0" path="res://Scenes/inventory_slot.tscn" id="3_mre2y"]
+[ext_resource type="Script" uid="uid://dw128k4kuoeiy" path="res://Scripts/UI/InvGrid.gd" id="4_5d8xa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ryf15"]
+
+[node name="PlayerActions" type="MarginContainer" unique_id=835199416]
+custom_minimum_size = Vector2(0, 312)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=94110331]
+layout_mode = 2
+texture = ExtResource("1_1tcaa")
+patch_margin_left = 28
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 28
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=929922027]
+layout_mode = 2
+
+[node name="ActionPages" type="MarginContainer" parent="VBoxContainer" unique_id=74416281]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/ActionPages" unique_id=1352007866]
+layout_mode = 2
+texture = ExtResource("1_1tcaa")
+patch_margin_left = 28
+patch_margin_top = 28
+patch_margin_right = 28
+patch_margin_bottom = 28
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=1675892213]
+custom_minimum_size = Vector2(204, 240)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_ryf15")
+tab_alignment = 1
+current_tab = 0
+tabs_visible = false
+
+[node name="InvPanel" type="MarginContainer" parent="VBoxContainer/TabContainer" unique_id=1593205179]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_p48ia")
+slot_scene = ExtResource("3_mre2y")
+metadata/_tab_index = 0
+
+[node name="InvGrid" type="GridContainer" parent="VBoxContainer/TabContainer/InvPanel" unique_id=156640083]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 7
+columns = 4
+script = ExtResource("4_5d8xa")
