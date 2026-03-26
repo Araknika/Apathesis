@@ -84,13 +84,6 @@ func send_description():
 
 # CONTEXT MENU LOGIC
 
-@onready var context_menu: PopupMenu = $"../ContextMenu"
-
-var index_number = InventoryHandler.PlayerInventory.find(item)
-
 func _on_gui_input(event: InputEvent) -> void:
 	if item and hovered and event is InputEventMouseButton and event.button_index == (MOUSE_BUTTON_RIGHT) and event.pressed:
-		if index_number != -1:
-			print(index_number)
-		else:
-			print("empty")
+		SignalHandler.slot_index.emit(index)

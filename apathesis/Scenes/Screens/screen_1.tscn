@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://uxemkllljr7d"]
 
+[ext_resource type="Script" uid="uid://pk3d7x4kqre" path="res://Scripts/item_layer.gd" id="1_syv8n"]
 [ext_resource type="TileSet" uid="uid://ok47i8yiblsi" path="res://Assets/tilesets/new_tile_set.tres" id="1_xlom1"]
 [ext_resource type="Script" uid="uid://bbpuwpq38cf0" path="res://Scripts/Screens/screen1/door_1.gd" id="2_22lo2"]
 [ext_resource type="PackedScene" uid="uid://2krlu0j26j3p" path="res://Scenes/player.tscn" id="2_hrnfc"]
@@ -15,6 +16,9 @@ offset_top = -324.0
 offset_right = 528.0
 offset_bottom = 216.0
 color = Color(0, 0, 0, 1)
+
+[node name="ItemLayer" type="Node2D" parent="." unique_id=1383701274]
+script = ExtResource("1_syv8n")
 
 [node name="Rooms" type="Node2D" parent="." unique_id=1868594537]
 position = Vector2(0, -300)

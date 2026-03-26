@@ -8,5 +8,7 @@ script = ExtResource("1_ro6jj")
 item_name = "TATTERED RAGS"
 item_type = 1
 item_description = "BETTER THAN NOTHING..."
+pickup_text = "YOU TAKE THE SCRAPS OF CLOTH THAT COULD LOOSELY BE CALLED ARMOR"
 item_texture = ExtResource("1_vkcc2")
+context = 98
 metadata/_custom_type_script = "uid://c11r7qcue6k5n"

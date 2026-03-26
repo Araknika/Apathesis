@@ -9,6 +9,7 @@ var inputs = {"right": Vector2.RIGHT,
 			"down": Vector2.DOWN}
 
 func _ready():
+	SignalHandler.PlayerPos_pull.connect(send_pos)
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2
 
@@ -22,6 +23,11 @@ func move(dir):
 	ray.force_raycast_update()
 	if !ray.is_colliding():
 		position += inputs[dir] * tile_size
+
+func send_pos():
+	var current_pos = self.global_position
+	SignalHandler.PlayerPos_send.emit(current_pos)
+
 
 func player():
 	pass

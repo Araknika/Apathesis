@@ -8,14 +8,13 @@ func _ready() -> void:
 	signal_connect()
 
 func signal_connect():
-	SignalHandler.hp_add.connect(health_update.bind(0, "add"))
-	SignalHandler.hp_sub.connect(health_update.bind(0,"sub"))
+	SignalHandler.hp_add.connect(health_update.bind(-1, "add"))
+	SignalHandler.hp_sub.connect(health_update.bind(-1,"sub"))
 	SignalHandler.hp_set.connect(health_update.bind("set"))
-
 
 func health_update(value: int, change_type: String):
 	var temp = health
-	if value > 0:
+	if value > -1:
 		health = value
 	if change_type == "add":
 		health += 1
