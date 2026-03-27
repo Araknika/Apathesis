@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://dghufwu41ntg7" path="res://Scripts/UI/message_box.gd" id="2_8c1qa"]
 [ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="3_5cpld"]
 [ext_resource type="AudioStream" uid="uid://d04jsswk4bo2y" path="res://Assets/Sounds/Effects/UI/message.wav" id="4_slypr"]
+[ext_resource type="Script" uid="uid://f7dahn5e5pnq" path="res://Scripts/UI/read_box.gd" id="5_8c1qa"]
 [ext_resource type="Texture2D" uid="uid://dby2n52g0b4oa" path="res://Assets/UI/Panels/simple.png" id="5_h06gs"]
+[ext_resource type="Script" uid="uid://b73ndgtl2klvn" path="res://Scripts/UI/closereadbutton.gd" id="6_5cpld"]
 
 [node name="Textbox" type="MarginContainer" unique_id=2078363890]
 custom_minimum_size = Vector2(360, 192)
@@ -29,7 +31,12 @@ theme_override_constants/margin_top = 19
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
-[node name="MessageBox" type="MarginContainer" parent="MessageBoxOutline" unique_id=874648834]
+[node name="TabContainer" type="TabContainer" parent="MessageBoxOutline" unique_id=45156390]
+layout_mode = 2
+current_tab = 0
+tabs_visible = false
+
+[node name="MessageBox" type="MarginContainer" parent="MessageBoxOutline/TabContainer" unique_id=874648834]
 z_index = 1
 layout_mode = 2
 theme_override_constants/margin_left = 8
@@ -37,11 +44,9 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("2_8c1qa")
+metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MessageBoxOutline/MessageBox" unique_id=57805731]
-layout_mode = 2
-
-[node name="MessageLog" type="RichTextLabel" parent="MessageBoxOutline/MessageBox/VBoxContainer" unique_id=501325347]
+[node name="MessageLog" type="RichTextLabel" parent="MessageBoxOutline/TabContainer/MessageBox" unique_id=501325347]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/line_separation = 6
@@ -52,9 +57,43 @@ scroll_active = false
 scroll_following = true
 vertical_alignment = 2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MessageBoxOutline/MessageBox/VBoxContainer/MessageLog" unique_id=1717694909]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MessageBoxOutline/TabContainer/MessageBox/MessageLog" unique_id=1717694909]
 stream = ExtResource("4_slypr")
 bus = &"UI"
+
+[node name="ReadBox" type="MarginContainer" parent="MessageBoxOutline/TabContainer" unique_id=1940623859]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("5_8c1qa")
+metadata/_tab_index = 1
+
+[node name="ReadText" type="RichTextLabel" parent="MessageBoxOutline/TabContainer/ReadBox" unique_id=888544722]
+z_index = 1
+layout_mode = 2
+theme_override_constants/line_separation = 6
+theme_override_constants/paragraph_separation = 6
+theme_override_fonts/normal_font = ExtResource("3_5cpld")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+scroll_active = false
+
+[node name="MarginContainer" type="MarginContainer" parent="MessageBoxOutline/TabContainer/ReadBox" unique_id=672663611]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Button" type="Button" parent="MessageBoxOutline/TabContainer/ReadBox/MarginContainer" unique_id=745646401]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_5cpld")
+theme_override_font_sizes/font_size = 10
+text = "close"
+script = ExtResource("6_5cpld")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MessageBoxOutline" unique_id=828707396]
 layout_mode = 2
@@ -64,3 +103,5 @@ patch_margin_left = 12
 patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
+
+[connection signal="pressed" from="MessageBoxOutline/TabContainer/ReadBox/MarginContainer/Button" to="MessageBoxOutline/TabContainer/ReadBox/MarginContainer/Button" method="_on_pressed"]

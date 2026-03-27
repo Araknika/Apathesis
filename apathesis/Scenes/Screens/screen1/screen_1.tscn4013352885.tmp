@@ -1,0 +1,94 @@
+[gd_scene format=4 uid="uid://uxemkllljr7d"]
+
+[ext_resource type="Script" uid="uid://bak3kus07xqsc" path="res://Scripts/Screens/screen1/screen_1.gd" id="1_vqbhl"]
+[ext_resource type="Script" uid="uid://pk3d7x4kqre" path="res://Scripts/item_layer.gd" id="1_xvjms"]
+[ext_resource type="TileSet" uid="uid://ok47i8yiblsi" path="res://Assets/tilesets/new_tile_set.tres" id="2_3fdh3"]
+[ext_resource type="Script" uid="uid://01yhsnb5yvl5" path="res://Scenes/Screens/screen1/roomcheck1.gd" id="3_vqbhl"]
+[ext_resource type="PackedScene" uid="uid://ddnowrsfbx1b1" path="res://Scenes/Screens/screen1/game elements/door1.tscn" id="4_3fdh3"]
+[ext_resource type="PackedScene" uid="uid://2krlu0j26j3p" path="res://Scenes/player.tscn" id="4_xv374"]
+[ext_resource type="Script" uid="uid://6goupwro385p" path="res://Scripts/Screens/screen1/game elements/door1.gd" id="5_vqbhl"]
+[ext_resource type="PackedScene" uid="uid://bkk1xr2c8nb1e" path="res://Scenes/Screens/screen1/game elements/door2.tscn" id="7_0b0tq"]
+[ext_resource type="Script" uid="uid://iq5slhih2f14" path="res://Scripts/Screens/screen1/game elements/door2.gd" id="8_xv3pp"]
+[ext_resource type="PackedScene" uid="uid://db0lt6n8wexat" path="res://Scenes/Screens/screen1/game elements/door3.tscn" id="10_3rbtb"]
+[ext_resource type="Script" uid="uid://0xym2rijxcg0" path="res://Scripts/Screens/screen1/game elements/door3.gd" id="11_23eh4"]
+
+[node name="Screen1" type="Node2D" unique_id=2141356641]
+script = ExtResource("1_vqbhl")
+
+[node name="BG" type="ColorRect" parent="." unique_id=538396177]
+z_index = -1
+offset_left = -216.0
+offset_top = -324.0
+offset_right = 528.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 1)
+
+[node name="ItemLayer" type="Node2D" parent="." unique_id=1383701274]
+script = ExtResource("1_xvjms")
+
+[node name="Rooms" type="Node2D" parent="." unique_id=1868594537]
+position = Vector2(0, -300)
+
+[node name="Room1" type="Node2D" parent="Rooms" unique_id=1552440746]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Rooms/Room1" unique_id=856223675]
+tile_map_data = PackedByteArray("AAADABcAAAAXAAQAAAACABcAAAAXAAQAAAABABcAAAAWAAQAAAABABYAAAAWAAMAAAABABUAAAAWAAMAAAABABQAAAAWAAMAAAAFABQAAAAYAAMAAAAFABUAAAAYAAMAAAAFABYAAAAYAAMAAAAFABcAAAAYAAQAAAAEABcAAAAXAAQAAAAFABMAAAAYAAIAAAABABMAAAAWAAIAAAACABMAAAAXAAIAAAAEABMAAAAXAAIAAAADABMAAAAUAAIAAAA=")
+tile_set = ExtResource("2_3fdh3")
+
+[node name="roomcheck" type="Area2D" parent="Rooms/Room1" unique_id=2036090546]
+script = ExtResource("3_vqbhl")
+
+[node name="roomcheckbox" type="CollisionPolygon2D" parent="Rooms/Room1/roomcheck" unique_id=1763983441]
+polygon = PackedVector2Array(24, 240, 24, 276, 60, 276, 60, 240)
+
+[node name="Door1" parent="Rooms/Room1" unique_id=814005628 instance=ExtResource("4_3fdh3")]
+position = Vector2(36, 240)
+script = ExtResource("5_vqbhl")
+
+[node name="Room2" type="Node2D" parent="Rooms" unique_id=304973547]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Rooms/Room2" unique_id=1852427252]
+tile_map_data = PackedByteArray("AAABABIAAAAWAAMAAAABABEAAAAWAAMAAAABAA4AAAAWAAMAAAABAA8AAAAWAAMAAAABAA0AAAAWAAMAAAACAA0AAAAXAAQAAAADAA0AAAAUAAIAAAAEAA0AAAAXAAQAAAAFAA0AAAAXAAQAAAABABAAAAAWAAMAAAAHAA0AAAAXAAQAAAAHABMAAAAWAAIAAAAIAA0AAAAXAAQAAAAIABMAAAAXAAIAAAAJAA0AAAAUAAIAAAAJABMAAAAUAAIAAAAKAA0AAAAXAAQAAAAKABMAAAAXAAIAAAALAA0AAAAYAAMAAAALAA4AAAAYAAMAAAALAA8AAAAYAAMAAAALABAAAAAUAAIAAAALABEAAAAYAAMAAAALABIAAAAYAAMAAAALABMAAAAYAAIAAAAGABMAAAAXAAIAAAAGAA0AAAAXAAQAAAABABMAAAAWAAIAAAA=")
+tile_set = ExtResource("2_3fdh3")
+
+[node name="Door2" parent="Rooms/Room2" unique_id=1448366362 instance=ExtResource("7_0b0tq")]
+position = Vector2(108, 240)
+script = ExtResource("8_xv3pp")
+
+[node name="Door3" parent="Rooms/Room2" unique_id=1552451451 instance=ExtResource("10_3rbtb")]
+position = Vector2(36, 168)
+script = ExtResource("11_23eh4")
+
+[node name="Room3" type="Node2D" parent="Rooms" unique_id=727582532]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Rooms/Room3" unique_id=1165686682]
+tile_map_data = PackedByteArray("AAAHABQAAAAWAAMAAAAHABUAAAAWAAMAAAAHABYAAAAWAAMAAAAHABcAAAAWAAQAAAALABQAAAAYAAMAAAALABUAAAAYAAMAAAALABYAAAAYAAMAAAALABcAAAAYAAMAAAAKABcAAAAXAAQAAAAJABcAAAAXAAQAAAAIABcAAAAXAAQAAAA=")
+tile_set = ExtResource("2_3fdh3")
+
+[node name="Room4" type="Node2D" parent="Rooms" unique_id=1449345989]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Rooms/Room4" unique_id=740669309]
+tile_map_data = PackedByteArray("AAABAAwAAAAWAAMAAAABAAsAAAAWAAMAAAABAAoAAAAWAAMAAAABAAkAAAAWAAIAAAACAAkAAAAXAAIAAAADAAkAAAAXAAIAAAAEAAkAAAAXAAIAAAAFAAkAAAAYAAIAAAAFAAoAAAAYAAMAAAAFAAsAAAAYAAMAAAAFAAwAAAAYAAMAAAA=")
+tile_set = ExtResource("2_3fdh3")
+
+[node name="Room5" type="Node2D" parent="Rooms" unique_id=1110625776]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Rooms/Room5" unique_id=1960187483]
+tile_map_data = PackedByteArray("AAALAAwAAAAYAAMAAAALAAsAAAAYAAMAAAALAAoAAAAYAAMAAAAHAAwAAAAWAAMAAAAHAAsAAAAWAAMAAAAHAAoAAAAWAAMAAAAHAAkAAAAWAAIAAAALAAkAAAAYAAIAAAAKAAkAAAAXAAIAAAAJAAkAAAAXAAIAAAAIAAkAAAAXAAIAAAA=")
+tile_set = ExtResource("2_3fdh3")
+
+[node name="Room6" type="Node2D" parent="Rooms" unique_id=1820335658]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Rooms/Room6" unique_id=1616326832]
+tile_set = ExtResource("2_3fdh3")
+
+[node name="Room7" type="Node2D" parent="Rooms" unique_id=1996229326]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Rooms/Room7" unique_id=17227945]
+tile_set = ExtResource("2_3fdh3")
+
+[node name="Player" parent="." unique_id=1617560936 instance=ExtResource("4_xv374")]
+position = Vector2(36, -48)
+
+[connection signal="area_entered" from="Rooms/Room1/roomcheck" to="Rooms/Room1/roomcheck" method="_on_area_entered"]
+[connection signal="area_exited" from="Rooms/Room1/roomcheck" to="Rooms/Room1/roomcheck" method="_on_area_exited"]

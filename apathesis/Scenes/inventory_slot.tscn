@@ -12,7 +12,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 42.0
 offset_bottom = 42.0
-script = ExtResource("1_0cu6i")
+mouse_filter = 2
 
 [node name="ItemSlot" type="Panel" parent="." unique_id=193971720]
 custom_minimum_size = Vector2(42, 42)
@@ -21,8 +21,8 @@ offset_right = 42.0
 offset_bottom = 42.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6h8ck")
+script = ExtResource("1_0cu6i")
 
 [node name="Icon" type="TextureRect" parent="ItemSlot" unique_id=1607864462]
 layout_mode = 1
@@ -39,5 +39,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[connection signal="mouse_entered" from="ItemSlot/Icon" to="." method="_on_icon_mouse_entered"]
-[connection signal="mouse_exited" from="ItemSlot/Icon" to="." method="_on_icon_mouse_exited"]
+[connection signal="gui_input" from="ItemSlot" to="ItemSlot" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ItemSlot" to="ItemSlot" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ItemSlot" to="ItemSlot" method="_on_mouse_exited"]

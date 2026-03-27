@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Texts" format=3 uid="uid://b8rv1xuamgwa0"]
+
+[ext_resource type="Texture2D" uid="uid://bfxxqanew1hdm" path="res://Assets/textures/Items/note1.png" id="1_f5njk"]
+[ext_resource type="Script" uid="uid://dkvi4mtl7vyr1" path="res://Resources/Items/item data/types/Text.gd" id="1_n5d8t"]
+
+[resource]
+script = ExtResource("1_n5d8t")
+read_text = "DESPITE THE RAGGED NATURE OF THE NOTE, THE HANDWRITING IS PERFECT.
+[color=E8E5C8]\"FIND THE SHARD OF [color=#A82525] APATHESIS[/color].
+DESTROY [color=#700f46] IT [/color].
+FREE [color=1773E3] HER [/color].
+GODS SAVE YOU.\"[/color]"
+item_name = "TORN NOTE"
+item_type = 5
+item_description = "A SCRAP OF PAPER, HASTILY TORN AT THE EDGES."
+pickup_text = "YOU POCKET THE NOTE"
+item_texture = ExtResource("1_f5njk")
+context = 224
+metadata/_custom_type_script = "uid://dkvi4mtl7vyr1"

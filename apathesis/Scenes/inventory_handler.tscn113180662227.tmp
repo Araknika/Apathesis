@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bfko85772l0y8"]
+
+[ext_resource type="Script" uid="uid://cc2o7kvhop6d8" path="res://Scripts/UI/InventoryHandler.gd" id="1_k1nkb"]
+[ext_resource type="Script" uid="uid://c11r7qcue6k5n" path="res://Resources/Items/ItemData.gd" id="2_c7bwa"]
+[ext_resource type="Resource" uid="uid://ct3ucid8tywh4" path="res://Resources/Items/TatteredRags.tres" id="3_r53cr"]
+[ext_resource type="Script" uid="uid://cods4i3oqnenm" path="res://Scripts/ItemHandler.gd" id="4_asu5h"]
+[ext_resource type="Resource" uid="uid://dtsipdm1vtqoy" path="res://Resources/Items/RuinedKnife.tres" id="4_hh6nc"]
+[ext_resource type="Script" uid="uid://vu0kjogxnluw" path="res://Scripts/ContextHandler.gd" id="5_mipcj"]
+[ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="6_xp0fq"]
+
+[node name="InventoryHandler" type="Node" unique_id=1637197928]
+script = ExtResource("1_k1nkb")
+PlayerInventory = Array[ExtResource("2_c7bwa")]([ExtResource("3_r53cr"), null, null, ExtResource("4_hh6nc"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[node name="ItemHandler" type="Node" parent="." unique_id=230946401]
+script = ExtResource("4_asu5h")
+
+[node name="ContextHandler" type="Node2D" parent="." unique_id=787286137]
+script = ExtResource("5_mipcj")
+
+[node name="ContextMenu" type="PopupMenu" parent="ContextHandler" unique_id=243141225]
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+size = Vector2i(165, 100)
+theme_override_fonts/font = ExtResource("6_xp0fq")
+theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_separator_size = 2
+item_count = 2
+item_0/text = "USE"
+item_0/id = 1
+item_1/text = "INSPECT"
+item_1/id = 0

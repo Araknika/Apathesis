@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://b5bgecr64xkns"]
 
 [ext_resource type="PackedScene" uid="uid://chkxnvswdpdad" path="res://Scenes/UI Elements/textbox.tscn" id="1_nt8jn"]
+[ext_resource type="PackedScene" uid="uid://chenxdptbwkhh" path="res://Scenes/UI Elements/player_data_1.tscn" id="1_smcll"]
 [ext_resource type="PackedScene" uid="uid://dbgxcf5uepu3u" path="res://Scenes/UI Elements/status.tscn" id="2_2246s"]
 [ext_resource type="PackedScene" uid="uid://d4lqxp0ic42md" path="res://Scenes/UI Elements/game_view.tscn" id="2_m78vo"]
-[ext_resource type="Texture2D" uid="uid://dby2n52g0b4oa" path="res://Assets/UI/Panels/simple.png" id="3_2246s"]
+[ext_resource type="PackedScene" uid="uid://4rexan0etlq6" path="res://Scenes/UI Elements/player_data_2.tscn" id="2_ryf15"]
 [ext_resource type="PackedScene" uid="uid://bftk0qp44uc1q" path="res://Scenes/UI Elements/player_actions.tscn" id="3_q7pk6"]
 [ext_resource type="PackedScene" uid="uid://dub8oiega2nob" path="res://Scenes/UI Elements/world_actions.tscn" id="4_m78vo"]
 
@@ -42,29 +43,11 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer" unique_id=1643641188]
-custom_minimum_size = Vector2(180, 0)
+[node name="PlayerData1" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer" unique_id=1646159939 instance=ExtResource("1_smcll")]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer/MarginContainer" unique_id=270122461]
+[node name="PlayerData2" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer" unique_id=1835133448 instance=ExtResource("2_ryf15")]
 layout_mode = 2
-texture = ExtResource("3_2246s")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
-
-[node name="MarginContainer2" type="MarginContainer" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer" unique_id=620006454]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="HUD/HBoxContainer/LeftHud/TopHud/HBoxContainer/MarginContainer2" unique_id=1148003125]
-layout_mode = 2
-texture = ExtResource("3_2246s")
-patch_margin_left = 11
-patch_margin_top = 11
-patch_margin_right = 11
-patch_margin_bottom = 11
 
 [node name="GameView" parent="HUD/HBoxContainer/LeftHud" unique_id=1554540969 instance=ExtResource("2_m78vo")]
 layout_mode = 2
@@ -78,11 +61,13 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 0
 
-[node name="Status" parent="HUD/HBoxContainer/RightHUD" unique_id=752275066 instance=ExtResource("2_2246s")]
-layout_mode = 2
-
 [node name="PlayerActions" parent="HUD/HBoxContainer/RightHUD" unique_id=835199416 instance=ExtResource("3_q7pk6")]
 layout_mode = 2
 
 [node name="WorldActions" parent="HUD/HBoxContainer/RightHUD" unique_id=125634570 instance=ExtResource("4_m78vo")]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+
+[node name="Status" parent="HUD/HBoxContainer/RightHUD" unique_id=752275066 instance=ExtResource("2_2246s")]
+custom_minimum_size = Vector2(0, 192)
 layout_mode = 2
