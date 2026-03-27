@@ -1,12 +1,12 @@
 extends Node
 
-signal message_send(text:String)
+# Main Signals
+signal game_start
 
-# UI world action signals
+# UI Signals
 signal action_interact
-signal action_open
-signal action_look
-signal action_inspect
+signal action_take
+signal message_send(text:String)
 
 # Player Signals
 signal PlayerPos_pull
@@ -28,10 +28,10 @@ signal description_pull
 signal name_send(text:String)
 signal type_send(text:String)
 signal description_send(text:String)
+signal read_send(text:String)
 
 # Sound Signals
 signal play_song(text:String)
-
 
 # Debug Signals
 signal debug1

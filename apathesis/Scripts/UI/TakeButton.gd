@@ -1,4 +1,4 @@
 extends Button
 
 func _on_pressed() -> void:
-	SignalHandler.action_open.emit()
+	SignalHandler.action_take.emit()

@@ -61,11 +61,13 @@ layout_mode = 2
 size_flags_horizontal = 8
 theme_override_constants/separation = 0
 
-[node name="Status" parent="HUD/HBoxContainer/RightHUD" unique_id=752275066 instance=ExtResource("2_2246s")]
-layout_mode = 2
-
 [node name="PlayerActions" parent="HUD/HBoxContainer/RightHUD" unique_id=835199416 instance=ExtResource("3_q7pk6")]
 layout_mode = 2
 
 [node name="WorldActions" parent="HUD/HBoxContainer/RightHUD" unique_id=125634570 instance=ExtResource("4_m78vo")]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+
+[node name="Status" parent="HUD/HBoxContainer/RightHUD" unique_id=752275066 instance=ExtResource("2_2246s")]
+custom_minimum_size = Vector2(0, 192)
 layout_mode = 2

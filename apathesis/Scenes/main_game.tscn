@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b5bgecr64xkns" path="res://Scenes/ui.tscn" id="2_0e3vx"]
 [ext_resource type="Script" uid="uid://2gb7bd2fctdh" path="res://Scripts/UI/custom_cursor.gd" id="2_6j5ir"]
+[ext_resource type="Script" uid="uid://ccl385otbmyv" path="res://Scenes/screen_loader.gd" id="2_mgc0q"]
 [ext_resource type="Script" uid="uid://b6w5gvkqqyufb" path="res://Scripts/music_player.gd" id="3_0e3vx"]
 
 [node name="MainGame" type="Node" unique_id=1601059325]
@@ -12,6 +13,7 @@
 script = ExtResource("2_6j5ir")
 
 [node name="ScreenLoader" type="Node" parent="Systems" unique_id=528049186]
+script = ExtResource("2_mgc0q")
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=273854861]
 

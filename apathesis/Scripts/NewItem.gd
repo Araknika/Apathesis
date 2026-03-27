@@ -11,7 +11,7 @@ var item_id = null
 
 func _ready() -> void:
 	set_item()
-	SignalHandler.action_interact.connect(pickup)
+	SignalHandler.action_take.connect(pickup)
 
 func set_item():
 	if data:

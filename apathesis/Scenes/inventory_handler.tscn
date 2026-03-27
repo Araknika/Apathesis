@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://bfko85772l0y8"]
 
 [ext_resource type="Script" uid="uid://cc2o7kvhop6d8" path="res://Scripts/UI/InventoryHandler.gd" id="1_k1nkb"]
-[ext_resource type="Script" uid="uid://c11r7qcue6k5n" path="res://Resources/Items/ItemData.gd" id="2_c7bwa"]
+[ext_resource type="Script" uid="uid://c11r7qcue6k5n" path="res://Resources/Items/item data/ItemData.gd" id="2_c7bwa"]
 [ext_resource type="Script" uid="uid://cods4i3oqnenm" path="res://Scripts/ItemHandler.gd" id="4_asu5h"]
-[ext_resource type="Resource" uid="uid://dtsipdm1vtqoy" path="res://Resources/Items/RuinedKnife.tres" id="4_hh6nc"]
 [ext_resource type="Script" uid="uid://vu0kjogxnluw" path="res://Scripts/ContextHandler.gd" id="5_mipcj"]
 [ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="6_xp0fq"]
 
 [node name="InventoryHandler" type="Node" unique_id=1637197928]
 script = ExtResource("1_k1nkb")
-PlayerInventory = Array[ExtResource("2_c7bwa")]([ExtResource("4_hh6nc"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+PlayerInventory = Array[ExtResource("2_c7bwa")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 
 [node name="ItemHandler" type="Node" parent="." unique_id=230946401]
 script = ExtResource("4_asu5h")

@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://dp6ya2hdj8jvj" path="res://Scripts/Player/playermovement.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://dtekl6inebnw3" path="res://Assets/Spritesheets/5.png" id="2_6t5aa"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvnsp"]
 atlas = ExtResource("2_6t5aa")
-region = Rect2(1, 53, 12, 12)
+region = Rect2(1, 27, 12, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fkybt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vgqql")
+"texture": SubResource("AtlasTexture_cvnsp")
 }],
 "loop": true,
 "name": &"default",

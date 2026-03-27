@@ -1,7 +1,10 @@
 extends Node
 
 # MESSAGE HEX CODES
-	#DEEP PURPLE #700f46
+	#TEXT #E8E5C8
+	#IT/CHAOS #700f46
+	#HER/MAGIC #1773E3
+	#APATHESIS #A82525
 
 # MESSAGE SIGNAL EMIT
 	#SignalHandler.message_send.emit("text")

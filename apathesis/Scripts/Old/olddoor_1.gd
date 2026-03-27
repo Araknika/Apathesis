@@ -2,13 +2,12 @@ extends Area2D
 
 @onready var staticbody: CollisionPolygon2D = $StaticBody2D/CollisionPolygon2D
 @onready var tile: TileMapLayer = $TileMapLayer
-@onready var area_2d: Area2D = $Area2D
 @onready var audio_stream: AudioStreamPlayer = $AudioStreamPlayer
 
 var opened = false
 
 func _ready() -> void:
-	SignalHandler.action_open.connect(open_door)
+	SignalHandler.action_interact.connect(open_door)
 
 #Detects if player is inside and sets a var
 var player_inside = false

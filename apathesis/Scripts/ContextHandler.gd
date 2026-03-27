@@ -40,6 +40,9 @@ func _on_context_menu_id_pressed(id: int) -> void:
 		"DROP":
 			do_drop()
 			pass
+		"READ":
+			do_read()
+			pass
 
 
 func do_inspect():
@@ -53,3 +56,8 @@ func do_drop():
 	item_scene.global_position = playerpos
 	InventoryHandler.PlayerInventory[item_index] = null
 	SignalHandler.inventory_update.emit()
+
+func do_read():
+	if found_item as Texts:
+		print("is texts. content: ", found_item.read_text)
+		SignalHandler.read_send.emit(found_item.read_text)

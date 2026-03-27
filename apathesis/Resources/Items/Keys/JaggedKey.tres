@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Keys" format=3 uid="uid://da6k0aavvr17l"]
+
+[ext_resource type="Texture2D" uid="uid://bf2qbopu1luap" path="res://Assets/textures/Items/key1.png" id="1_3tocs"]
+[ext_resource type="Script" uid="uid://edqo534kg86y" path="res://Resources/Items/item data/types/Key.gd" id="1_nrkog"]
+
+[resource]
+script = ExtResource("1_nrkog")
+item_name = "JAGGED KEY"
+item_type = 3
+item_description = "THIS KEY HAS SEEN BETTER DAYS..."
+pickup_text = "YOU POCKET THE KEY"
+item_texture = ExtResource("1_3tocs")
+context = 193
+metadata/_custom_type_script = "uid://edqo534kg86y"

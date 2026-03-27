@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://lia6sv6q8oqj"]
+
+[ext_resource type="Script" uid="uid://bbpuwpq38cf0" path="res://Scripts/Old/olddoor_1.gd" id="1_asp4b"]
+[ext_resource type="AudioStream" uid="uid://doek6cnjsqrdy" path="res://Assets/Sounds/Effects/stonedoor.wav" id="2_qlgfr"]
+[ext_resource type="TileSet" uid="uid://ok47i8yiblsi" path="res://Assets/tilesets/new_tile_set.tres" id="3_ct25j"]
+
+[node name="door1" type="Area2D" unique_id=1546524906]
+script = ExtResource("1_asp4b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1343951961]
+stream = ExtResource("2_qlgfr")
+bus = &"Effects"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=355013453]
+tile_map_data = PackedByteArray(0, 0, 3, 0, 19, 0, 0, 0, 19, 0, 2, 0, 0, 0)
+tile_set = ExtResource("3_ct25j")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1371500866]
+polygon = PackedVector2Array(36, 240, 36, 222, 48, 222, 48, 246, 36, 246)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=145777961]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1775650850]
+polygon = PackedVector2Array(36, 228, 36, 240, 48, 240, 48, 228)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
