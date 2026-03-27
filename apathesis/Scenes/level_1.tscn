@@ -1,15 +1,15 @@
 [gd_scene format=4 uid="uid://d03u28ux6quex"]
 
-[ext_resource type="Script" uid="uid://banybhswx4s6s" path="res://Scripts/level_1.gd" id="1_6444e"]
+[ext_resource type="Script" uid="uid://banybhswx4s6s" path="res://Scripts/Old/oldlevel_1.gd" id="1_6444e"]
 [ext_resource type="AudioStream" uid="uid://pew7wuouvr17" path="res://Assets/Sounds/Music/The Traitor King's Court.wav" id="2_7p6j4"]
 [ext_resource type="TileSet" uid="uid://ok47i8yiblsi" path="res://Assets/tilesets/new_tile_set.tres" id="4_7p6j4"]
-[ext_resource type="Script" uid="uid://cm6l03v3fgjg" path="res://Scripts/room1.gd" id="6_xrdnt"]
-[ext_resource type="Script" uid="uid://cg34o64qlt1ps" path="res://Scripts/Door1.gd" id="7_lsmp6"]
+[ext_resource type="Script" uid="uid://cm6l03v3fgjg" path="res://Scripts/Old/oldroom1.gd" id="6_xrdnt"]
+[ext_resource type="Script" uid="uid://cg34o64qlt1ps" path="res://Scripts/Old/oldDoor1.gd" id="7_lsmp6"]
 [ext_resource type="AudioStream" uid="uid://doek6cnjsqrdy" path="res://Assets/Sounds/Effects/stonedoor.wav" id="7_xrdnt"]
 [ext_resource type="AudioStream" uid="uid://bhbby3ht2w0yq" path="res://Assets/Sounds/Effects/UI/pickup.wav" id="9_chwpn"]
-[ext_resource type="Script" uid="uid://c5xlivm82bdyi" path="res://Scripts/room2.gd" id="9_wrinw"]
+[ext_resource type="Script" uid="uid://c5xlivm82bdyi" path="res://Scripts/Old/oldroom2.gd" id="9_wrinw"]
 [ext_resource type="Script" uid="uid://cpkfuicnrlcjw" path="res://Scripts/items/JaggedKey.gd" id="10_af3po"]
-[ext_resource type="Script" uid="uid://blelbk0xcro8c" path="res://Scripts/Door2.gd" id="10_chwpn"]
+[ext_resource type="Script" uid="uid://blelbk0xcro8c" path="res://Scripts/Old/oldDoor2.gd" id="10_chwpn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_af3po"]
 size = Vector2(70, 70)

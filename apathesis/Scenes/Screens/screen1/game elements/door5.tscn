@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://br1h3kpa04v2k"]
+
+[ext_resource type="Script" uid="uid://eqc6j826p8da" path="res://Scripts/Game Elements/door_template.gd" id="1_sudto"]
+[ext_resource type="AudioStream" uid="uid://doek6cnjsqrdy" path="res://Assets/Sounds/Effects/stonedoor.wav" id="2_7aeit"]
+[ext_resource type="TileSet" uid="uid://ok47i8yiblsi" path="res://Assets/tilesets/new_tile_set.tres" id="3_fjudy"]
+
+[node name="DoorTemplate" type="Node2D" unique_id=814005628]
+script = ExtResource("1_sudto")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=856399198]
+stream = ExtResource("2_7aeit")
+bus = &"Effects"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2143945588]
+z_index = 1
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 0, 0, 19, 0, 2, 0, 0, 0)
+tile_set = ExtResource("3_fjudy")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1351633428]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1929323294]
+position = Vector2(6, -6)
+polygon = PackedVector2Array(-6, -6, -12, -6, -12, 6, -6, 6, -6, 12, 6, 12, 6, 6, 12, 6, 12, -6, 6, -6, 6, -12, -6, -12)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1215533058]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1747847053]
+position = Vector2(6, -6)
+polygon = PackedVector2Array(-6, -6, -6, 6, 6, 6, 6, -6)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

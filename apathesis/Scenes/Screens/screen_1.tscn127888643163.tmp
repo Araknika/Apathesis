@@ -1,0 +1,39 @@
+[gd_scene format=4 uid="uid://uxemkllljr7d"]
+
+[ext_resource type="Script" uid="uid://pk3d7x4kqre" path="res://Scripts/item_layer.gd" id="1_syv8n"]
+[ext_resource type="TileSet" uid="uid://ok47i8yiblsi" path="res://Assets/tilesets/new_tile_set.tres" id="1_xlom1"]
+[ext_resource type="Script" uid="uid://01yhsnb5yvl5" path="res://Scenes/Screens/roomcheck1.gd" id="2_yspfn"]
+[ext_resource type="PackedScene" uid="uid://lia6sv6q8oqj" path="res://Scenes/door_1.tscn" id="4_noji0"]
+
+[node name="Screen1" type="Node2D" unique_id=2141356641]
+
+[node name="BG" type="ColorRect" parent="." unique_id=538396177]
+z_index = -1
+offset_left = -216.0
+offset_top = -324.0
+offset_right = 528.0
+offset_bottom = 216.0
+color = Color(0, 0, 0, 1)
+
+[node name="ItemLayer" type="Node2D" parent="." unique_id=1383701274]
+script = ExtResource("1_syv8n")
+
+[node name="Rooms" type="Node2D" parent="." unique_id=1868594537]
+position = Vector2(0, -300)
+
+[node name="Room1" type="Node2D" parent="Rooms" unique_id=1552440746]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Rooms/Room1" unique_id=856223675]
+tile_map_data = PackedByteArray("AAADABcAAAAXAAQAAAACABcAAAAXAAQAAAABABcAAAAWAAQAAAABABYAAAAWAAMAAAABABUAAAAWAAMAAAABABQAAAAWAAMAAAAFABQAAAAYAAMAAAAFABUAAAAYAAMAAAAFABYAAAAYAAMAAAAFABcAAAAYAAQAAAAEABcAAAAXAAQAAAAFABMAAAAYAAIAAAABABMAAAAWAAIAAAACABMAAAAXAAIAAAAEABMAAAAXAAIAAAADABMAAAAUAAIAAAA=")
+tile_set = ExtResource("1_xlom1")
+
+[node name="roomcheck" type="Area2D" parent="Rooms/Room1" unique_id=2036090546]
+script = ExtResource("2_yspfn")
+
+[node name="roomcheckbox" type="CollisionPolygon2D" parent="Rooms/Room1/roomcheck" unique_id=1763983441]
+polygon = PackedVector2Array(24, 240, 24, 276, 60, 276, 60, 240)
+
+[node name="door1" parent="Rooms/Room1" unique_id=1546524906 instance=ExtResource("4_noji0")]
+
+[connection signal="area_entered" from="Rooms/Room1/roomcheck" to="Rooms/Room1/roomcheck" method="_on_area_entered"]
+[connection signal="area_exited" from="Rooms/Room1/roomcheck" to="Rooms/Room1/roomcheck" method="_on_area_exited"]

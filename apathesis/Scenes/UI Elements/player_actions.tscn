@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://ese86a3hvk0a" path="res://Assets/UI/Panels/bone_breakers.png" id="1_1tcaa"]
 [ext_resource type="Script" uid="uid://chcle7g4omwgy" path="res://Scripts/UI/inv_panel.gd" id="2_p48ia"]
 [ext_resource type="PackedScene" uid="uid://dekym472luwr0" path="res://Scenes/inventory_slot.tscn" id="3_mre2y"]
-[ext_resource type="Script" uid="uid://dw128k4kuoeiy" path="res://Scripts/UI/InvGrid.gd" id="4_5d8xa"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ryf15"]
 
@@ -62,4 +61,3 @@ mouse_filter = 2
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 7
 columns = 4
-script = ExtResource("4_5d8xa")

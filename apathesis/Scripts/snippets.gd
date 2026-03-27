@@ -1,7 +1,10 @@
 extends Node
 
 # MESSAGE HEX CODES
-	#DEEP PURPLE #700f46
+	#TEXT #E8E5C8
+	#IT/CHAOS #700f46
+	#HER/MAGIC #1773E3
+	#APATHESIS #A82525
 
 # MESSAGE SIGNAL EMIT
 	#SignalHandler.message_send.emit("text")
@@ -13,34 +16,18 @@ extends Node
 	#CONNECT
 		#SignalHandler.action_look.connect(look)
 
-
-
-#ENTIRE OLD SLOT CODE
-#extends Panel
+# FUCKASS SLOT CONTEXT BULLSHIT
+#@onready var context_menu: PopupMenu = $ContextMenu
 #
-#@onready var icon: TextureRect = $Icon
+#func _on_icon_gui_input(event: InputEvent) -> void:
+	#if item and hovered and event is InputEventMouseButton and event.button_index == (MOUSE_BUTTON_RIGHT) and event.pressed:
+		#prepare_menu(item)
+		#context_menu.popup(Rect2(get_global_mouse_position(), Vector2.ZERO))
 #
+#func prepare_menu(data: ItemData):
+	#pass
 #
-## DRAG LOGIC
-#func _get_drag_data(_at_position: Vector2) -> Variant:
-	#if icon.texture == null:
-		#return
-	#
-	#var preview = duplicate()
-	#var c = Control.new()
-	#c.add_child(preview)
-	#preview.position -= Vector2(23,23)
-	#preview.self_modulate = Color.TRANSPARENT
-	#c.modulate = Color(c.modulate, 0.5)
-	#
-	#set_drag_preview(c)
-	#return icon
-#
-## DROP LOGIC
-#func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
-	#return true
-#
-#func _drop_data(at_position: Vector2, data: Variant) -> void:
-	#var tmp = icon.texture
-	#icon.texture = data.texture
-	#data.texture = tmp
+#func _on_context_menu_id_pressed(id: int) -> void:
+	#match id:
+		#0:
+			#SignalHandler.description_send.emit(item.item_description)
