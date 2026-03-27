@@ -59,5 +59,5 @@ func do_drop():
 
 func do_read():
 	if found_item as Texts:
-		print("is texts. content: ", found_item.read_text)
+		SignalHandler.note_data.emit(found_item)
 		SignalHandler.read_send.emit(found_item.read_text)

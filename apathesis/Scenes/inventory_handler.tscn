@@ -4,7 +4,18 @@
 [ext_resource type="Script" uid="uid://c11r7qcue6k5n" path="res://Resources/Items/item data/ItemData.gd" id="2_c7bwa"]
 [ext_resource type="Script" uid="uid://cods4i3oqnenm" path="res://Scripts/ItemHandler.gd" id="4_asu5h"]
 [ext_resource type="Script" uid="uid://vu0kjogxnluw" path="res://Scripts/ContextHandler.gd" id="5_mipcj"]
+[ext_resource type="Texture2D" uid="uid://ckadrs6f1ldec" path="res://Assets/UI/button.png" id="6_hh6nc"]
 [ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="6_xp0fq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ffour"]
+texture = ExtResource("6_hh6nc")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xp0fq"]
+bg_color = Color(0.6, 0.6, 0.6, 0.23529412)
 
 [node name="InventoryHandler" type="Node" unique_id=1637197928]
 script = ExtResource("1_k1nkb")
@@ -19,9 +30,12 @@ script = ExtResource("5_mipcj")
 [node name="ContextMenu" type="PopupMenu" parent="ContextHandler" unique_id=243141225]
 canvas_item_default_texture_filter = 0
 oversampling_override = 1.0
-size = Vector2i(165, 100)
+size = Vector2i(195, 100)
+visible = true
 theme_override_fonts/font = ExtResource("6_xp0fq")
 theme_override_font_sizes/font_size = 8
 theme_override_font_sizes/font_separator_size = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ffour")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xp0fq")
 
 [connection signal="id_pressed" from="ContextHandler/ContextMenu" to="ContextHandler" method="_on_context_menu_id_pressed"]

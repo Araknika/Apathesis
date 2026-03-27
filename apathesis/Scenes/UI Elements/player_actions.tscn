@@ -1,16 +1,51 @@
 [gd_scene format=3 uid="uid://bftk0qp44uc1q"]
 
 [ext_resource type="Texture2D" uid="uid://ese86a3hvk0a" path="res://Assets/UI/Panels/bone_breakers.png" id="1_1tcaa"]
+[ext_resource type="Theme" uid="uid://dcw6rquwrqrm3" path="res://Resources/buttons.tres" id="2_mre2y"]
 [ext_resource type="Script" uid="uid://chcle7g4omwgy" path="res://Scripts/UI/inv_panel.gd" id="2_p48ia"]
+[ext_resource type="Texture2D" uid="uid://djlvb8rvuyk7g" path="res://Assets/UI/inventory.png" id="3_5d8xa"]
 [ext_resource type="PackedScene" uid="uid://dekym472luwr0" path="res://Scenes/inventory_slot.tscn" id="3_mre2y"]
+[ext_resource type="Texture2D" uid="uid://y8xqqer67pba" path="res://Assets/UI/equipment.png" id="4_epmoe"]
+[ext_resource type="Texture2D" uid="uid://cuypsn05ofpwo" path="res://Assets/UI/journal.png" id="4_mre2y"]
+[ext_resource type="Script" uid="uid://cb57fvcbsdq7k" path="res://Scripts/UI/tab_container.gd" id="6_ba31k"]
+[ext_resource type="Texture2D" uid="uid://dk7eipxrkvc5j" path="res://Assets/UI/Panels/polis_sanctuary.png" id="8_epmoe"]
+[ext_resource type="Texture2D" uid="uid://ckadrs6f1ldec" path="res://Assets/UI/button.png" id="10_n6gye"]
+[ext_resource type="Script" uid="uid://b5g2vssg3wqkr" path="res://Scripts/UI/notes.gd" id="11_ial6j"]
+[ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="11_xuevj"]
+[ext_resource type="Script" uid="uid://qjqyc3bjvlhf" path="res://Scripts/UI/button.gd" id="13_vou84"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5d8xa"]
+load_path = "res://.godot/imported/magic.png-6b4157ee22aef86a28fe1ce3fc5bb57a.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ryf15"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xuevj"]
+texture = ExtResource("10_n6gye")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n6gye"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture = ExtResource("8_epmoe")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ial6j"]
+
 [node name="PlayerActions" type="MarginContainer" unique_id=835199416]
-custom_minimum_size = Vector2(0, 312)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+custom_minimum_size = Vector2(240, 312)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -156.0
+offset_right = 120.0
+offset_bottom = 156.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -38,6 +73,46 @@ patch_margin_top = 28
 patch_margin_right = 28
 patch_margin_bottom = 28
 
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ActionPages" unique_id=1992857856]
+layout_mode = 2
+alignment = 1
+
+[node name="InvButton" type="Button" parent="VBoxContainer/ActionPages/HBoxContainer" unique_id=1323463635]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_mre2y")
+icon = ExtResource("3_5d8xa")
+expand_icon = true
+
+[node name="EquipButton" type="Button" parent="VBoxContainer/ActionPages/HBoxContainer" unique_id=1893911560]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_mre2y")
+icon = ExtResource("4_epmoe")
+expand_icon = true
+
+[node name="MagicButton" type="Button" parent="VBoxContainer/ActionPages/HBoxContainer" unique_id=530835406]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_mre2y")
+icon = SubResource("CompressedTexture2D_5d8xa")
+expand_icon = true
+
+[node name="JournalButton" type="Button" parent="VBoxContainer/ActionPages/HBoxContainer" unique_id=1842259780]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_mre2y")
+icon = ExtResource("4_mre2y")
+expand_icon = true
+
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=1675892213]
 custom_minimum_size = Vector2(204, 240)
 layout_mode = 2
@@ -47,6 +122,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_ryf15")
 tab_alignment = 1
 current_tab = 0
 tabs_visible = false
+script = ExtResource("6_ba31k")
 
 [node name="InvPanel" type="MarginContainer" parent="VBoxContainer/TabContainer" unique_id=1593205179]
 layout_mode = 2
@@ -61,3 +137,110 @@ mouse_filter = 2
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 7
 columns = 4
+
+[node name="JournalPanel" type="MarginContainer" parent="VBoxContainer/TabContainer" unique_id=280113770]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/JournalPanel" unique_id=2066954172]
+layout_mode = 2
+theme_override_constants/separation = -1
+
+[node name="JournalTabs" type="MarginContainer" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer" unique_id=1085138487]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalTabs" unique_id=226887769]
+layout_mode = 2
+texture = ExtResource("8_epmoe")
+patch_margin_left = 32
+patch_margin_top = 16
+patch_margin_right = 32
+patch_margin_bottom = 17
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalTabs" unique_id=1865443151]
+layout_mode = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="QuestsButton" type="Button" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalTabs/HBoxContainer" unique_id=1846606595]
+custom_minimum_size = Vector2(60, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_mre2y")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_xuevj")
+text = "QUEST"
+
+[node name="NotesButton" type="Button" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalTabs/HBoxContainer" unique_id=657702288]
+custom_minimum_size = Vector2(60, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_mre2y")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_xuevj")
+text = "NOTES"
+
+[node name="ItemsButton" type="Button" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalTabs/HBoxContainer" unique_id=310783371]
+custom_minimum_size = Vector2(60, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_mre2y")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_xuevj")
+text = "ITEMS"
+
+[node name="JournalBody" type="TabContainer" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer" unique_id=1477959377]
+custom_minimum_size = Vector2(0, 210)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_n6gye")
+current_tab = 0
+tabs_visible = false
+
+[node name="NotesTab" type="TabContainer" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalBody" unique_id=275561947]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ial6j")
+current_tab = 0
+tabs_visible = false
+metadata/_tab_index = 0
+
+[node name="Notes" type="MarginContainer" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalBody/NotesTab" unique_id=228846361]
+layout_mode = 2
+script = ExtResource("11_ial6j")
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalBody/NotesTab/Notes" unique_id=1390651922]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="NoteText" type="MarginContainer" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalBody/NotesTab" unique_id=842390934]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalBody/NotesTab/NoteText" unique_id=504663498]
+layout_mode = 2
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = ExtResource("11_xuevj")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "OOPS LOL SOMETHING BROKE"
+
+[node name="CloseNote" type="Button" parent="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalBody/NotesTab/NoteText" unique_id=2088620671]
+custom_minimum_size = Vector2(60, 18)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("2_mre2y")
+theme_override_font_sizes/font_size = 8
+text = "CLOSE"
+script = ExtResource("13_vou84")
+
+[connection signal="pressed" from="VBoxContainer/ActionPages/HBoxContainer/InvButton" to="VBoxContainer/TabContainer" method="_on_inv_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ActionPages/HBoxContainer/EquipButton" to="VBoxContainer/TabContainer" method="_on_equip_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ActionPages/HBoxContainer/MagicButton" to="VBoxContainer/TabContainer" method="_on_magic_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ActionPages/HBoxContainer/JournalButton" to="VBoxContainer/TabContainer" method="_on_journal_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalBody/NotesTab/NoteText/CloseNote" to="VBoxContainer/TabContainer/JournalPanel/VBoxContainer/JournalBody/NotesTab/NoteText/CloseNote" method="_on_pressed"]

@@ -7,6 +7,9 @@ signal game_start
 signal action_interact
 signal action_take
 signal message_send(text:String)
+signal note_add(item:ItemData)
+signal note_data(item:ItemData)
+signal journal_add
 
 # Player Signals
 signal PlayerPos_pull

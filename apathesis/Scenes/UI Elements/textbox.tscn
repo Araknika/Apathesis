@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://f7dahn5e5pnq" path="res://Scripts/UI/read_box.gd" id="5_8c1qa"]
 [ext_resource type="Texture2D" uid="uid://dby2n52g0b4oa" path="res://Assets/UI/Panels/simple.png" id="5_h06gs"]
 [ext_resource type="Script" uid="uid://b73ndgtl2klvn" path="res://Scripts/UI/closereadbutton.gd" id="6_5cpld"]
+[ext_resource type="Theme" uid="uid://dcw6rquwrqrm3" path="res://Resources/buttons.tres" id="6_slypr"]
 
 [node name="Textbox" type="MarginContainer" unique_id=2078363890]
 custom_minimum_size = Vector2(360, 192)
@@ -74,6 +75,7 @@ metadata/_tab_index = 1
 [node name="ReadText" type="RichTextLabel" parent="MessageBoxOutline/TabContainer/ReadBox" unique_id=888544722]
 z_index = 1
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/line_separation = 6
 theme_override_constants/paragraph_separation = 6
 theme_override_fonts/normal_font = ExtResource("3_5cpld")
@@ -81,18 +83,23 @@ theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 scroll_active = false
 
-[node name="MarginContainer" type="MarginContainer" parent="MessageBoxOutline/TabContainer/ReadBox" unique_id=672663611]
-custom_minimum_size = Vector2(60, 30)
+[node name="HBoxContainer" type="HBoxContainer" parent="MessageBoxOutline/TabContainer/ReadBox" unique_id=956387386]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="Button" type="Button" parent="MessageBoxOutline/TabContainer/ReadBox/MarginContainer" unique_id=745646401]
+[node name="MarginContainer" type="MarginContainer" parent="MessageBoxOutline/TabContainer/ReadBox/HBoxContainer" unique_id=672663611]
+custom_minimum_size = Vector2(60, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="CloseButton" type="Button" parent="MessageBoxOutline/TabContainer/ReadBox/HBoxContainer/MarginContainer" unique_id=745646401]
 z_index = 1
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_5cpld")
-theme_override_font_sizes/font_size = 10
-text = "close"
+theme = ExtResource("6_slypr")
+theme_override_font_sizes/font_size = 8
+text = "ADD TO JOURNAL"
 script = ExtResource("6_5cpld")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MessageBoxOutline" unique_id=828707396]
@@ -104,4 +111,4 @@ patch_margin_top = 12
 patch_margin_right = 12
 patch_margin_bottom = 12
 
-[connection signal="pressed" from="MessageBoxOutline/TabContainer/ReadBox/MarginContainer/Button" to="MessageBoxOutline/TabContainer/ReadBox/MarginContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="MessageBoxOutline/TabContainer/ReadBox/HBoxContainer/MarginContainer/CloseButton" to="MessageBoxOutline/TabContainer/ReadBox/HBoxContainer/MarginContainer/CloseButton" method="_on_pressed"]
