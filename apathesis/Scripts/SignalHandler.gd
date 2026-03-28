@@ -35,6 +35,7 @@ signal name_send(text:String)
 signal type_send(text:String)
 signal description_send(text:String)
 signal read_send(text:String)
+signal use_key(id:int)
 
 # Sound Signals
 signal play_song(text:String)

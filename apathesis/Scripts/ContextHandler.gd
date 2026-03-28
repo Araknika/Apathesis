@@ -46,6 +46,9 @@ func _on_context_menu_id_pressed(id: int) -> void:
 		"READ":
 			do_read()
 			pass
+		"USE":
+			do_use()
+			pass
 
 
 func do_inspect():
@@ -69,3 +72,7 @@ func do_read():
 		SignalHandler.message_send.emit("YOU HAVE GAINED NEW KNOWLEDGE. (LORE UPDATED)")
 		InventoryHandler.PlayerInventory[item_index] = null
 		SignalHandler.inventory_update.emit()
+
+func do_use():
+	if found_item is Keys:
+		SignalHandler.use_key.emit(found_item.ID)

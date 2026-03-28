@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://8me00l6c7eso" path="res://Scenes/Screens/screen1/game elements/door4.tscn" id="11_3f8ty"]
 [ext_resource type="Script" uid="uid://0xym2rijxcg0" path="res://Scripts/Screens/screen1/game elements/door3.gd" id="11_23eh4"]
 [ext_resource type="Script" uid="uid://csb3tyd5yljjp" path="res://Scripts/Screens/screen1/game elements/door4.gd" id="12_56is0"]
+[ext_resource type="Script" uid="uid://cswjai35x3la3" path="res://Scripts/Screens/screen1/game elements/doorL1.gd" id="13_56is0"]
 
 [node name="Screen1" type="Node2D" unique_id=2141356641]
 script = ExtResource("1_vqbhl")
@@ -73,6 +74,10 @@ script = ExtResource("11_23eh4")
 [node name="Door4" parent="Rooms/Room2" unique_id=587211001 instance=ExtResource("11_3f8ty")]
 position = Vector2(108, 168)
 script = ExtResource("12_56is0")
+
+[node name="DoorL1" parent="Rooms/Room2" unique_id=1147662409 instance=ExtResource("11_3f8ty")]
+position = Vector2(132, 204)
+script = ExtResource("13_56is0")
 
 [node name="Room3" type="Node2D" parent="Rooms" unique_id=727582532]
 
