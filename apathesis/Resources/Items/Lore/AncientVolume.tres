@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Lore" format=3 uid="uid://c2v3i6cuyuth0"]
+
+[ext_resource type="Texture2D" uid="uid://dim6a5888qr1d" path="res://Assets/textures/Items/book.png" id="1_2opuj"]
+[ext_resource type="Script" uid="uid://b5qrxh08fb3tg" path="res://Resources/Items/item data/types/Lore.gd" id="1_id2yt"]
+
+[resource]
+script = ExtResource("1_id2yt")
+pagecount = 1
+lore_name = "MAGIC I"
+page1 = "CHANGE. PROGRESS. UNDERSTANDING. THIS IS [color=#1773E3]MAGIC[/color]. IT IS A PROCESS. IT IS AN ACTION ONE PERFORMS. [color=#1773E3]MAGIC[/color] IS THE CHISEL WITH WHICH WE CARVE INTO THE [color=#1773E3]ALETHIC[/color] FORCE. WITH IT, WE MAY DARE TO HOPE THAT ALL WILL NOT RETURN TO [color=#700f46]CHAOS[/color]."
+item_name = "ANCIENT VOLUME"
+item_type = 6
+item_description = "A TOME BOUND IN SECRETS."
+pickup_text = "YOU STASH THE BOOK"
+item_texture = ExtResource("1_2opuj")
+context = 224
+metadata/_custom_type_script = "uid://b5qrxh08fb3tg"

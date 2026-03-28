@@ -25,11 +25,14 @@ func item_search (target: int):
 func popup_context():
 	menu.popup(Rect2(get_global_mouse_position(), Vector2.ZERO))
 	menu.clear()
+	menu.add_item("-- " + found_item.item_name + " --")
+	menu.set_item_disabled(0, true)
 	for Key in ItemData.context_options:
 		var bit_value = ItemData.context_options[Key]
 		
 		if bit_value & found_item.context:
 			menu.add_item(Key)
+			
 
 func _on_context_menu_id_pressed(id: int) -> void:
 	var indextext = menu.get_item_text(id)
@@ -58,6 +61,11 @@ func do_drop():
 	SignalHandler.inventory_update.emit()
 
 func do_read():
-	if found_item as Texts:
-		SignalHandler.note_data.emit(found_item)
+	if found_item is Texts:
+		SignalHandler.note_data.emit(found_item, item_index)
 		SignalHandler.read_send.emit(found_item.read_text)
+	elif found_item is Lore:
+		SignalHandler.lore_add.emit(found_item)
+		SignalHandler.message_send.emit("YOU HAVE GAINED NEW KNOWLEDGE. (LORE UPDATED)")
+		InventoryHandler.PlayerInventory[item_index] = null
+		SignalHandler.inventory_update.emit()

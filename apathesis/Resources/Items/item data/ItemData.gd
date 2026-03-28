@@ -17,7 +17,7 @@ func _validate_property(property: Dictionary):
 		property.hint_string = ",".join(context_options.keys())
 	
 
-enum Type {WEAPON, ARMOR, ACCESSORY, KEY, CONSUMABLE, TEXT, MISC}
+enum Type {WEAPON, ARMOR, ACCESSORY, KEY, CONSUMABLE, TEXT, LORE, MISC}
 
 enum context_options {
 	USE= 1 << 0,

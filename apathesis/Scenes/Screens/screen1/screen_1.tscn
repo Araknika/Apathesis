@@ -20,9 +20,9 @@ script = ExtResource("1_vqbhl")
 [node name="BG" type="ColorRect" parent="." unique_id=538396177]
 z_index = -1
 offset_left = -216.0
-offset_top = -324.0
+offset_top = -348.0
 offset_right = 528.0
-offset_bottom = 216.0
+offset_bottom = 192.0
 color = Color(0, 0, 0, 1)
 
 [node name="ItemLayer" type="Node2D" parent="." unique_id=1383701274]
@@ -33,6 +33,9 @@ position = Vector2(30, -42)
 
 [node name="Itemspawner2" type="Node2D" parent="ItemLayer" unique_id=1187568920]
 position = Vector2(102, -30)
+
+[node name="Itemspawner3" type="Node2D" parent="ItemLayer" unique_id=1855357537]
+position = Vector2(114, -174)
 
 [node name="Rooms" type="Node2D" parent="." unique_id=1868594537]
 position = Vector2(0, -300)

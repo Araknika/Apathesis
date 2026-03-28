@@ -13,9 +13,14 @@ func add_text(text:String):
 	readtext.text = text
 
 var stored_note: ItemData = null
+var stored_index: int = -1
 
-func define_note(item:ItemData):
+func define_note(item:ItemData, index:int):
 	stored_note = item
+	stored_index = index
 
 func send_note():
-	SignalHandler.note_add.emit(stored_note)
+	SignalHandler.note_add.emit(stored_note, stored_index)
+	SignalHandler.message_send.emit("YOU COPY THE " + stored_note.item_name +" INTO YOUR JOURNAL. (QUEST UPDATED)")
+	if stored_note as Texts and stored_note.quest_text != null:
+		SignalHandler.quest_update.emit(stored_note.quest_text)

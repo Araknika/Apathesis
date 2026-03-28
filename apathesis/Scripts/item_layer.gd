@@ -14,10 +14,12 @@ func _ready() -> void:
 
 const TORN_NOTE = preload("uid://b8rv1xuamgwa0")
 const JAGGED_KEY = preload("uid://da6k0aavvr17l")
+const ANCIENT_VOLUME = preload("uid://c2v3i6cuyuth0")
 
 func spawn_items():
 	spawn1()
 	spawn2()
+	spawn3()
 	
 func spawn1():
 	var item_scene = preload("res://Resources/Items/NewItem.tscn").instantiate()
@@ -30,3 +32,9 @@ func spawn2():
 	item_scene.data = JAGGED_KEY
 	room_3.add_child(item_scene)
 	item_scene.global_position = $Itemspawner2.global_position
+
+func spawn3():
+	var item_scene = preload("res://Resources/Items/NewItem.tscn").instantiate()
+	item_scene.data = ANCIENT_VOLUME
+	room_5.add_child(item_scene)
+	item_scene.global_position = $Itemspawner3.global_position

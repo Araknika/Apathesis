@@ -1,8 +1,8 @@
 extends Control
 
 @onready var button: Button = $Button
-@onready var rich_text_label: RichTextLabel = $"../../../NoteText/RichTextLabel"
-@onready var notes_tab: TabContainer = $"../../.."
+@onready var notes_tab: TabContainer = $"../../../.."
+@onready var rich_text_label: RichTextLabel = $"../../../../NoteText/RichTextLabel"
 
 var note_item: ItemData = null
 
@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func fill_note(item:ItemData):
 	button.text = item.item_name
+	SignalHandler.journal_clearitem.emit()
 
 func _on_button_pressed() -> void:
 	if note_item as Texts:
