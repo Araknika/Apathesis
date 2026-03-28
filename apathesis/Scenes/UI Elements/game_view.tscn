@@ -5,6 +5,18 @@
 [ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="3_yjyit"]
 [ext_resource type="Script" uid="uid://b70cptvlhjh3x" path="res://Scripts/UI/start_button.gd" id="4_f7vlp"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mb4ma"]
+bg_color = Color(0.65882355, 0.14509805, 0.14509805, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7vlp"]
+bg_color = Color(0.65882355, 0.14509805, 0.14509805, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mb4ma"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kaxck"]
+bg_color = Color(0.65882355, 0.14509805, 0.14509805, 1)
+
 [node name="GameView" type="MarginContainer" unique_id=1554540969]
 custom_minimum_size = Vector2(360, 360)
 anchors_preset = 15
@@ -53,24 +65,39 @@ size_2d_override_stretch = true
 render_target_update_mode = 0
 script = ExtResource("2_yjyit")
 
-[node name="StartButton" type="Button" parent="." unique_id=590010560]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1346852389]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1749785378]
+custom_minimum_size = Vector2(348, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_yjyit")
+theme_override_font_sizes/normal_font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_mb4ma")
+text = "APATHESIS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=2575581]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=590010560]
+custom_minimum_size = Vector2(200, 23)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_yjyit")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f7vlp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mb4ma")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kaxck")
 text = "START GAME"
 script = ExtResource("4_f7vlp")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1749785378]
-custom_minimum_size = Vector2(300, 150)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-theme_override_colors/default_color = Color(0.65882355, 0.14509805, 0.14509805, 1)
-theme_override_fonts/normal_font = ExtResource("3_yjyit")
-theme_override_font_sizes/normal_font_size = 26
-text = "APATHESIS"
-horizontal_alignment = 1
-
-[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartButton" to="VBoxContainer/StartButton" method="_on_pressed"]

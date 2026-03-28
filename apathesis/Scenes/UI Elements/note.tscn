@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ct7mmpvxtosq0"]
+
+[ext_resource type="Script" uid="uid://dixfrvxxaegnr" path="res://Scripts/UI/note.gd" id="1_earon"]
+[ext_resource type="Theme" uid="uid://dcw6rquwrqrm3" path="res://Resources/buttons.tres" id="2_rhyns"]
+
+[node name="Note" type="Control" unique_id=1175894239]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_earon")
+
+[node name="Button" type="Button" parent="." unique_id=965441210]
+custom_minimum_size = Vector2(36, 20)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_rhyns")
+text = "TEST"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

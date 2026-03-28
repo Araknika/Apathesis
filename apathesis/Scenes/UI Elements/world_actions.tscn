@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dub8oiega2nob"]
 
 [ext_resource type="Texture2D" uid="uid://ese86a3hvk0a" path="res://Assets/UI/Panels/bone_breakers.png" id="1_y5a3c"]
-[ext_resource type="FontFile" uid="uid://c1xhmkqxf2ktg" path="res://Assets/Fonts/c-64.ttf" id="2_uhdcp"]
 [ext_resource type="Script" uid="uid://b670fjxapv4qa" path="res://Scripts/UI/TakeButton.gd" id="3_yy6su"]
 [ext_resource type="Script" uid="uid://bls54lpfp4bbh" path="res://Scripts/UI/Lookbutton.gd" id="4_wwmb3"]
 [ext_resource type="Script" uid="uid://d1w2o7xobuq1t" path="res://Scripts/UI/InteractButton.gd" id="5_hcn2j"]
+[ext_resource type="Theme" uid="uid://dcw6rquwrqrm3" path="res://Resources/buttons.tres" id="6_uhdcp"]
 
 [node name="WorldActions" type="MarginContainer" unique_id=125634570]
 custom_minimum_size = Vector2(0, 192)
@@ -38,8 +38,7 @@ size_flags_vertical = 0
 
 [node name="TakeButton" type="Button" parent="VBoxContainer/HBoxContainer/Take" unique_id=1588071339]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_uhdcp")
-theme_override_font_sizes/font_size = 10
+theme = ExtResource("6_uhdcp")
 text = "TAKE"
 script = ExtResource("3_yy6su")
 
@@ -51,19 +50,20 @@ size_flags_vertical = 0
 
 [node name="LookButton" type="Button" parent="VBoxContainer/HBoxContainer/Look" unique_id=121529301]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_uhdcp")
-theme_override_font_sizes/font_size = 10
+theme = ExtResource("6_uhdcp")
 text = "LOOK"
 script = ExtResource("4_wwmb3")
 
-[node name="InteractButton" type="Button" parent="VBoxContainer" unique_id=1205658070]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=555597598]
+layout_mode = 2
+
+[node name="InteractButton" type="Button" parent="VBoxContainer/MarginContainer" unique_id=1205658070]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_uhdcp")
-theme_override_font_sizes/font_size = 10
+theme = ExtResource("6_uhdcp")
 text = "INTRACT"
 script = ExtResource("5_hcn2j")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Take/TakeButton" to="VBoxContainer/HBoxContainer/Take/TakeButton" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Look/LookButton" to="VBoxContainer/HBoxContainer/Look/LookButton" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/InteractButton" to="VBoxContainer/InteractButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/InteractButton" to="VBoxContainer/MarginContainer/InteractButton" method="_on_pressed"]

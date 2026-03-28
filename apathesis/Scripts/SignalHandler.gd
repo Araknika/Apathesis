@@ -7,6 +7,12 @@ signal game_start
 signal action_interact
 signal action_take
 signal message_send(text:String)
+signal note_add(item:ItemData, index:int)
+signal note_data(item:ItemData, index:int)
+signal journal_add
+signal journal_clearitem
+signal quest_update(text:String)
+signal lore_add(item:ItemData)
 
 # Player Signals
 signal PlayerPos_pull
@@ -29,6 +35,7 @@ signal name_send(text:String)
 signal type_send(text:String)
 signal description_send(text:String)
 signal read_send(text:String)
+signal use_key(id:int)
 
 # Sound Signals
 signal play_song(text:String)

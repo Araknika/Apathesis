@@ -1,0 +1,39 @@
+extends Node2D
+
+@onready var tile: TileMapLayer = $TileMapLayer
+@onready var collision: CollisionPolygon2D = $StaticBody2D/CollisionPolygon2D
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+
+func _ready() -> void:
+	SignalHandler.action_interact.connect(open_door)
+	SignalHandler.use_key.connect(unlock)
+
+var player_inside = false
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.has_method("player"):
+		player_inside = true
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.has_method("player"):
+		player_inside = false
+
+var opened := false
+var locked := true
+
+func open_door():
+	if player_inside and locked:
+		SignalHandler.message_send.emit("THE DOOR DOESN'T BUDGE. IT'S LOCKED.")
+	elif player_inside and !opened:
+		audio.play()
+		tile.visible = false
+		collision.disabled = true
+		opened = true
+		SignalHandler.message_send.emit("THE HEAVY STONE DOOR SLIDES OPEN")
+		#$"../../Room6".visible = true
+	elif player_inside: SignalHandler.message_send.emit("THE DOOR IS STUCK OPEN")
+
+func unlock(id:int):
+	if id == 0:
+		locked = false
+		SignalHandler.message_send.emit("THE LOCK CLICKS OPEN.")

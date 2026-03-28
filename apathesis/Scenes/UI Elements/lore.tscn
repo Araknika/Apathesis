@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bo613a3fi03e3"]
+
+[ext_resource type="Script" uid="uid://5aj0idr5lw2w" path="res://Scripts/UI/lore.gd" id="1_8h3cn"]
+[ext_resource type="Theme" uid="uid://dcw6rquwrqrm3" path="res://Resources/buttons.tres" id="2_puj7q"]
+
+[node name="Lore" type="Control" unique_id=1175894239]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8h3cn")
+
+[node name="Button" type="Button" parent="." unique_id=965441210]
+custom_minimum_size = Vector2(36, 20)
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_puj7q")
+text = "TEST"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
